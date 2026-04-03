@@ -1,653 +1,446 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Gelijkspel in Sport — 11 mei 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap" rel="stylesheet"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Stakeholderdag · Solheim Cup 2026</title>
 <style>
-  :root {
-    --orange: #ff6105;
-    --navy: #050514;
-    --navy-mid: #1a1a33;
-    --lime: #dbf242;
-    --lila: #c9bff0;
-    --cream: #f5edde;
-    --white: #fffff5;
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Poppins', sans-serif; background: var(--navy); color: var(--white); overflow-x: hidden; }
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:Arial,Helvetica,sans-serif;background:#f2f4f7;color:#323741;font-size:14px;line-height:1.5;}
 
-  nav {
-    position: sticky; top: 0; z-index: 100;
-    background: var(--lila);
-    border-bottom: none;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 48px; height: 72px;
-  }
-  .nav-brand { display: flex; align-items: center; text-decoration: none; }
-  .nav-brand img { height: 32px; width: auto; }
-  .nav-links { display: flex; gap: 36px; list-style: none; }
-  .nav-links a {
-    color: var(--navy); text-decoration: none;
-    font-size: .82rem; font-weight: 600; letter-spacing: .3px;
-    transition: opacity .2s;
-  }
-  .nav-links a:hover { opacity: .6; }
+.header{background:#002664;padding:0;}
+.header-inner{max-width:960px;margin:0 auto;padding:20px 24px 0;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.header-logos{display:flex;align-items:center;gap:20px;padding-bottom:20px;}
+.divider-v{width:1px;height:48px;background:rgba(255,255,255,.3);}
+.header-title{padding-bottom:20px;text-align:right;}
+.header-title h1{font-size:18px;font-weight:700;color:#fff;letter-spacing:.02em;line-height:1.3;}
+.header-title .sub{font-size:12px;color:#CED9E5;margin-top:4px;font-weight:400;}
 
-  /* HERO */
-  .hero {
-    min-height: 92vh; display: flex; align-items: center;
-    position: relative; overflow: hidden; padding: 80px 40px;
-    background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(255,97,5,.13) 0%, transparent 70%),
-                radial-gradient(ellipse 50% 50% at 20% 80%, rgba(201,191,240,.08) 0%, transparent 60%), var(--navy);
-  }
-  .hero::before {
-    content: ''; position: absolute; inset: 0;
-    background-image: radial-gradient(circle, rgba(255,255,245,.06) 1px, transparent 1px);
-    background-size: 36px 36px; pointer-events: none;
-  }
-  .hero-content { max-width: 760px; z-index: 2; }
-  .hero-eyebrow {
-    display: inline-flex; align-items: center; gap: 10px;
-    background: rgba(255,97,5,.12); border: 1px solid rgba(255,97,5,.3);
-    color: var(--orange); font-weight: 700; font-size: .78rem;
-    letter-spacing: 1.5px; text-transform: uppercase;
-    padding: 6px 16px; border-radius: 999px; margin-bottom: 28px;
-  }
-  .hero-eyebrow::before {
-    content: ''; width: 6px; height: 6px; background: var(--orange);
-    border-radius: 50%; animation: pulse 2s infinite;
-  }
-  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(1.4)} }
-  .hero h1 { font-size: clamp(2.8rem, 7vw, 5.5rem); font-weight: 900; line-height: 1.0; letter-spacing: -2px; margin-bottom: 20px; }
-  .hero h1 em { font-style: normal; color: var(--orange); position: relative; display: inline-block; }
-  .hero h1 em::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 4px; background: var(--lime); border-radius: 2px; }
-  .hero-intro {
-    font-size: 1.1rem; line-height: 1.7; color: var(--white);
-    max-width: 600px; margin-bottom: 16px; font-weight: 400;
-    border-left: 3px solid var(--orange); padding-left: 20px;
-  }
-  .hero-sub { font-size: .95rem; line-height: 1.65; color: rgba(255,255,245,.65); max-width: 560px; margin-bottom: 40px; font-weight: 300; }
-  .hero-meta { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 48px; }
-  .meta-item {
-    display: flex; align-items: center; gap: 10px;
-    background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
-    padding: 10px 18px; border-radius: 8px;
-  }
-  .meta-icon { font-size: 1.1rem; }
-  .meta-text { font-size: .9rem; font-weight: 600; }
-  .meta-text span { color: rgba(255,255,245,.55); font-weight: 400; display: block; font-size: .78rem; }
-  .hero-cta {
-    display: inline-block; background: var(--orange); color: var(--white);
-    font-weight: 700; font-size: 1rem; letter-spacing: .5px; padding: 16px 36px;
-    border-radius: 6px; text-decoration: none; text-transform: uppercase;
-    transition: transform .2s, box-shadow .2s; box-shadow: 0 8px 32px rgba(255,97,5,.3);
-  }
-  .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(255,97,5,.45); }
-  .hero-deco {
-    position: absolute; right: -80px; top: 50%; transform: translateY(-50%);
-    width: 560px; height: 560px; z-index: 1;
-    background: conic-gradient(from 180deg, var(--orange) 0%, var(--lila) 30%, var(--lime) 60%, var(--orange) 100%);
-    border-radius: 50%; opacity: .06; filter: blur(2px);
-  }
+.gold-bar{background:#FFCC00;height:4px;}
 
-  /* SECTION BASE */
-  section { padding: 96px 40px; }
-  .section-label { display: inline-block; font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--orange); margin-bottom: 16px; }
-  .section-title { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 900; line-height: 1.1; letter-spacing: -1px; margin-bottom: 20px; }
-  .section-lead { font-size: 1.05rem; color: rgba(255,255,245,.65); line-height: 1.7; max-width: 560px; font-weight: 300; }
+.nav-strip{background:#323741;padding:8px 24px;display:flex;gap:20px;flex-wrap:wrap;max-width:960px;margin:0 auto;}
+.nav-item{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:#CED9E5;text-transform:uppercase;letter-spacing:.06em;}
+.nav-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0;}
 
-  /* STATS */
-  .stats-section { background: var(--lime); border-top: none; border-bottom: none; padding: 72px 40px; }
-  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0; max-width: 900px; margin: 0 auto; }
-  .stat-item { padding: 32px 28px; border-right: 1px solid rgba(5,5,20,.12); text-align: center; }
-  .stat-item:last-child { border-right: none; }
-  .stat-number { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; color: var(--navy); letter-spacing: -2px; line-height: 1; margin-bottom: 10px; }
-  .stat-label { font-size: .85rem; color: rgba(5,5,20,.65); line-height: 1.5; font-weight: 500; }
+.page{max-width:960px;margin:0 auto;padding:24px 24px 60px;}
 
-  /* ABOUT */
-  .about-section { background: var(--navy); border-bottom: 1px solid rgba(255,255,255,.06); }
-  .about-inner { max-width: 800px; margin: 0 auto; }
-  .about-quote {
-    background: rgba(255,97,5,.07); border-left: 4px solid var(--orange);
-    padding: 28px 32px; border-radius: 0 12px 12px 0; margin: 32px 0;
-  }
-  .about-quote p { font-size: 1.1rem; font-weight: 600; line-height: 1.6; color: var(--white); }
+.section-label{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#003399;margin:18px 0 5px 80px;border-left:2px solid #FFCC00;padding-left:8px;}
 
-  /* PROGRAMME COMPONENTS */
-  .components-section { background: var(--navy-mid); }
-  .components-inner { max-width: 900px; margin: 0 auto; }
-  .components-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px; }
-  .component-card {
-    background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
-    border-radius: 16px; padding: 32px; transition: border-color .2s, transform .2s;
-  }
-  .component-card:hover { border-color: rgba(255,97,5,.35); transform: translateY(-3px); }
-  .component-icon { font-size: 2rem; margin-bottom: 16px; display: block; }
-  .component-tag {
-    display: inline-block; font-size: .7rem; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 1px;
-    padding: 3px 10px; border-radius: 999px; margin-bottom: 14px;
-  }
-  .tag-golf { background: rgba(219,242,66,.12); color: var(--lime); border: 1px solid rgba(219,242,66,.25); }
-  .tag-sam { background: rgba(255,97,5,.12); color: var(--orange); border: 1px solid rgba(255,97,5,.25); }
-  .component-card h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 10px; line-height: 1.25; }
-  .component-card p { font-size: .88rem; color: rgba(255,255,245,.65); line-height: 1.6; font-weight: 300; }
+.daypart{display:inline-flex;align-items:center;gap:8px;background:#002664;color:#FFCC00;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:6px 14px;border-radius:2px;margin:20px 0 10px 0;}
 
-  /* PROGRAMME TIMELINE */
-  .programme-section { background: var(--navy); }
-  .programme-inner { max-width: 800px; margin: 0 auto; }
-  .programme-header { margin-bottom: 56px; }
-  .timeline { position: relative; }
-  .timeline::before { content: ''; position: absolute; left: 90px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--orange), rgba(255,97,5,.1)); }
-  .tl-item { display: flex; align-items: flex-start; gap: 0; margin-bottom: 0; position: relative; }
-  .tl-time { min-width: 90px; font-size: .92rem; font-weight: 700; color: var(--orange); padding: 22px 0; text-align: right; padding-right: 28px; line-height: 1; }
-  .tl-dot { position: relative; z-index: 2; width: 14px; height: 14px; border-radius: 50%; background: var(--orange); border: 3px solid var(--navy); flex-shrink: 0; margin-top: 26px; margin-left: -7px; box-shadow: 0 0 0 4px rgba(255,97,5,.2); transition: transform .2s; }
-  .tl-item:hover .tl-dot { transform: scale(1.3); }
-  .tl-content { flex: 1; padding: 14px 0 14px 28px; }
-  .tl-content h3 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; line-height: 1.3; }
-  .tl-content p { font-size: .88rem; color: rgba(255,255,245,.6); line-height: 1.55; font-weight: 300; }
-  .tl-badge { display: inline-block; font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 3px 10px; border-radius: 999px; margin-top: 6px; }
-  .badge-golf { background: rgba(219,242,66,.12); color: var(--lime); border: 1px solid rgba(219,242,66,.25); }
-  .badge-sam { background: rgba(255,97,5,.12); color: var(--orange); border: 1px solid rgba(255,97,5,.25); }
-  .badge-network { background: rgba(201,191,240,.12); color: var(--lila); border: 1px solid rgba(201,191,240,.25); }
-  .tl-item.wissel .tl-dot { background: var(--lila); box-shadow: 0 0 0 4px rgba(201,191,240,.15); }
-  .tl-item.wissel .tl-time { color: var(--lila); }
+.row{display:flex;margin-bottom:3px;align-items:stretch;}
+.tc{width:72px;flex-shrink:0;display:flex;align-items:flex-start;justify-content:flex-end;padding-right:12px;padding-top:13px;}
+.tc span{font-size:11px;font-weight:700;color:#003399;white-space:nowrap;}
+.blocks{flex:1;display:flex;gap:6px;}
 
-  /* EVA DE MOL SPOTLIGHT */
-  .spotlight-section { background: var(--navy-mid); }
-  .spotlight-card {
-    max-width: 760px; margin: 0 auto;
-    background: rgba(255,97,5,.06); border: 1px solid rgba(255,97,5,.2);
-    border-radius: 16px; padding: 48px;
-    display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: start;
-  }
-  .spotlight-avatar {
-    width: 120px; height: 120px; border-radius: 50%;
-    background: linear-gradient(135deg, var(--orange), var(--lila));
-    display: flex; align-items: center; justify-content: center;
-    font-size: 2.4rem; font-weight: 900; color: var(--white); flex-shrink: 0;
-  }
-  .spotlight-card h3 { font-size: 1.6rem; font-weight: 900; margin-bottom: 8px; letter-spacing: -.5px; }
-  .spotlight-role { color: var(--orange); font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px; }
-  .spotlight-card p { font-size: .95rem; color: rgba(255,255,245,.7); line-height: 1.65; font-weight: 300; margin-bottom: 10px; }
-  .spotlight-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-  .spotlight-tag { font-size: .75rem; font-weight: 600; padding: 4px 12px; border-radius: 999px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); color: rgba(255,255,245,.7); }
+.block{flex:1;border-radius:3px;padding:11px 13px;}
+.b-gray{background:#fff;border:1px solid #e0e3e9;border-left:3px solid #888;}
+.b-navy{background:#e8ecf5;border-left:3px solid #002664;}
+.b-amber{background:#fff8e1;border-left:3px solid #FFCC00;}
+.block-title{font-size:13px;font-weight:700;color:#002664;margin-bottom:2px;}
+.block-desc{font-size:11px;color:#5a5e6a;line-height:1.5;}
+.block-badge{display:inline-block;font-size:10px;padding:2px 8px;border-radius:2px;margin-top:5px;font-weight:700;margin-right:3px;text-transform:uppercase;letter-spacing:.04em;}
+.badge-navy{background:#002664;color:#FFCC00;}
+.badge-gold{background:#FFCC00;color:#002664;}
+.badge-gray{background:#CED9E5;color:#323741;}
+.speaker{font-size:10px;color:#003399;margin-top:4px;font-weight:700;}
+.location{font-size:10px;color:#888;margin-top:3px;font-weight:700;}
+.location::before{content:"📍 ";}
 
-  /* RSVP */
-  .rsvp-section { background: var(--navy); border-top: 1px solid rgba(255,255,255,.06); }
-  .rsvp-inner { max-width: 640px; margin: 0 auto; }
-  .rsvp-inner .section-title { text-align: center; }
-  .rsvp-inner .section-lead { text-align: center; margin: 0 auto 48px; }
-  .rsvp-form { background: var(--navy-mid); border: 1px solid rgba(255,255,255,.08); border-radius: 16px; padding: 40px; }
-  .form-group { margin-bottom: 20px; }
-  .form-group label { display: block; font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,245,.6); margin-bottom: 8px; }
-  .form-group input, .form-group select, .form-group textarea {
-    width: 100%; padding: 13px 16px; background: rgba(255,255,255,.04);
-    border: 1.5px solid rgba(255,255,255,.1); color: var(--white);
-    font-family: 'Poppins', sans-serif; font-size: .95rem; border-radius: 8px;
-    outline: none; transition: border .2s;
-  }
-  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--orange); }
-  .form-group select option { background: var(--navy-mid); }
-  .form-group textarea { resize: vertical; min-height: 90px; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .form-submit {
-    width: 100%; padding: 15px; background: var(--orange); color: var(--white);
-    font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1rem;
-    letter-spacing: .5px; border: none; border-radius: 8px; cursor: pointer;
-    text-transform: uppercase; margin-top: 8px; transition: opacity .2s, transform .2s;
-    box-shadow: 0 6px 24px rgba(255,97,5,.3);
-  }
-  .form-submit:hover { opacity: .88; transform: translateY(-1px); }
-  .form-note { text-align: center; font-size: .78rem; color: rgba(255,255,245,.4); margin-top: 16px; line-height: 1.5; }
+.pb{flex:1;border-radius:3px;padding:10px 11px;min-width:0;}
+.pb-blue{background:#e8ecf5;border-top:3px solid #002664;}
+.pb-red{background:#fdf0f3;border-top:3px solid #BB133E;}
+.pb-gold{background:#fffbee;border-top:3px solid #FFCC00;}
+.pb-title{font-size:12px;font-weight:700;color:#002664;margin-bottom:3px;}
+.pb-desc{font-size:11px;color:#5a5e6a;line-height:1.45;}
+.pb-foot{font-size:10px;color:#888;margin-top:4px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;}
+.pb-loc{font-size:10px;color:#888;margin-top:3px;}
+.pb-loc::before{content:"📍 ";}
 
-  /* PARTNERS */
-  .partners-section { background: var(--navy-mid); padding: 64px 40px; border-top: 1px solid rgba(255,255,255,.07); }
-  .partners-label { text-align: center; font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: rgba(255,255,245,.35); margin-bottom: 36px; }
-  .partners-logos { display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap; }
-  .partner-logo img { height: 44px; width: auto; mix-blend-mode: screen; opacity: .9; }
-  .partner-logo img.on-lime { mix-blend-mode: multiply; opacity: .85; }
+.intro-split{display:flex;gap:6px;margin-top:0;}
+.ih{flex:1;border-radius:3px;padding:8px 10px;}
+.ih-blue{background:#e8ecf5;border-left:2px solid #003399;}
+.ih-red{background:#fdf0f3;border-left:2px solid #BB133E;}
+.ih-title{font-size:11px;font-weight:700;color:#002664;margin-bottom:3px;text-transform:uppercase;letter-spacing:.04em;}
+.ih-desc{font-size:11px;color:#5a5e6a;line-height:1.4;}
 
-  /* FOOTER — SAM website stijl */
-  .footer-wrap {
-    background: var(--lila);
-    border-top: none;
-  }
-  .footer-tagline { font-size: .95rem; color: var(--navy); line-height: 1.65; font-weight: 300; margin-bottom: 20px; max-width: 240px; opacity: .75; }
-  .footer-email a { color: var(--navy); font-size: .9rem; font-weight: 600; text-decoration: none; border-bottom: 1px solid rgba(5,5,20,.25); padding-bottom: 2px; transition: opacity .2s; }
-  .footer-email a:hover { opacity: .6; }
-  .footer-col h4 { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--navy); margin-bottom: 18px; opacity: .5; }
-  .footer-col ul li a { font-size: .88rem; color: var(--navy); text-decoration: none; font-weight: 600; transition: opacity .2s; line-height: 1.5; }
-  .footer-col ul li a:hover { opacity: .6; }
-  .footer-col p { font-size: .88rem; color: var(--navy); line-height: 1.7; font-weight: 500; }
-  .footer-bottom { border-top: 1px solid rgba(5,5,20,.15); max-width: 1100px; margin: 0 auto; padding: 20px 48px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-  .footer-legal a { font-size: .75rem; color: var(--navy); opacity: .5; text-decoration: none; transition: opacity .2s; }
-  .footer-legal a:hover { opacity: .9; }
-  .footer-copy { font-size: .75rem; color: var(--navy); opacity: .4; }
-  .footer-main {
-    max-width: 1100px; margin: 0 auto;
-    padding: 72px 48px 56px;
-    display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 48px;
-  }
-  .footer-brand-col {}
-  .footer-brand-logo { margin-bottom: 20px; }
-  .footer-brand-logo img { height: 32px; width: auto; mix-blend-mode: screen; }
-  .footer-tagline {
-    font-size: .95rem; color: rgba(255,255,245,.55);
-    line-height: 1.65; font-weight: 300; margin-bottom: 20px; max-width: 240px;
-  }
-  .footer-email a {
-    color: var(--lila); font-size: .9rem; font-weight: 500;
-    text-decoration: none; border-bottom: 1px solid rgba(201,191,240,.3);
-    padding-bottom: 2px; transition: border-color .2s, color .2s;
-  }
-  .footer-email a:hover { border-color: var(--lila); color: var(--white); }
-  .footer-col h4 {
-    font-size: .72rem; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 2px; color: var(--lila); margin-bottom: 18px; opacity: .7;
-  }
-  .footer-col ul { list-style: none; }
-  .footer-col ul li { margin-bottom: 10px; }
-  .footer-col ul li a {
-    font-size: .88rem; color: rgba(255,255,245,.6); text-decoration: none;
-    font-weight: 400; transition: color .2s; line-height: 1.5;
-  }
-  .footer-col ul li a:hover { color: var(--white); }
-  .footer-col p { font-size: .88rem; color: rgba(255,255,245,.6); line-height: 1.7; font-weight: 300; }
-  .footer-bottom {
-    border-top: 1px solid rgba(201,191,240,.15);
-    max-width: 1100px; margin: 0 auto;
-    padding: 20px 48px;
-    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
-  }
-  .footer-legal { display: flex; gap: 24px; flex-wrap: wrap; }
-  .footer-legal a {
-    font-size: .75rem; color: rgba(255,255,245,.3);
-    text-decoration: none; transition: color .2s;
-  }
-  .footer-legal a:hover { color: rgba(255,255,245,.6); }
-  .footer-copy { font-size: .75rem; color: rgba(255,255,245,.25); }
+.divider{height:1px;background:#dde1ea;margin:6px 0 6px 72px;}
+.repeat-note{background:#fffbee;border:1px solid #FFCC00;border-radius:3px;padding:6px 12px;margin:4px 0 4px 72px;font-size:11px;color:#002664;font-weight:700;}
+.trange{margin-left:72px;font-size:10px;color:#888;margin-top:3px;margin-bottom:1px;font-weight:700;}
+.badge-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px;}
 
-  /* RESPONSIVE */
-  @media (max-width: 768px) {
-    nav { padding: 0 20px; }
-    .nav-links { display: none; }
-    section { padding: 64px 24px; }
-    .hero { padding: 64px 24px; min-height: 80vh; }
-    .hero h1 { letter-spacing: -1px; }
-    .hero-deco { display: none; }
-    .timeline::before { left: 70px; }
-    .tl-time { min-width: 70px; font-size: .8rem; padding-right: 20px; }
-    .spotlight-card { grid-template-columns: 1fr; text-align: center; padding: 32px 24px; }
-    .spotlight-avatar { margin: 0 auto; }
-    .components-grid { grid-template-columns: 1fr; }
-    .form-row { grid-template-columns: 1fr; }
-    footer { grid-template-columns: 1fr; padding: 40px 24px; }
-    .stats-grid { grid-template-columns: 1fr 1fr; }
-    .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,.08); }
-    .stat-item:last-child { border-bottom: none; }
-    .rsvp-form { padding: 28px 20px; }
-  }
+.bottom{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;}
+.card{background:#fff;border:1px solid #dde1ea;border-radius:3px;padding:16px 18px;border-top:3px solid #002664;}
+.card h3{font-size:12px;font-weight:700;color:#002664;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;}
+table{width:100%;border-collapse:collapse;font-size:12px;}
+th{text-align:left;font-size:10px;font-weight:700;color:#fff;background:#002664;text-transform:uppercase;letter-spacing:.05em;padding:5px 7px;}
+td{padding:5px 7px;color:#323741;border-bottom:1px solid #f0f2f5;vertical-align:top;}
+tr:last-child td{border-bottom:none;}
+.num{text-align:right;font-variant-numeric:tabular-nums;}
+.total td{font-weight:700;background:#e8ecf5;border-top:2px solid #002664;border-bottom:none;}
+.hl td{background:#fffbee;}
+.note{font-size:10px;color:#888;margin-top:8px;line-height:1.5;}
+
+.footer{background:#002664;margin-top:40px;}
+.footer-inner{max-width:960px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.footer-inner span{font-size:10px;color:#CED9E5;font-weight:700;letter-spacing:.05em;text-transform:uppercase;}
+.footer-gold{width:100%;height:2px;background:#FFCC00;}
+
+@media(max-width:600px){
+  .bottom{grid-template-columns:1fr;}
+  .blocks,.intro-split{flex-direction:column;}
+  .header-inner{flex-direction:column;align-items:flex-start;}
+  .header-title{text-align:left;}
+}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-brand">
-    <img src="logos/sam-logo.png" alt="Stichting SAM"/>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#programma">Programma</a></li>
-    <li><a href="#onderdelen">Onderdelen</a></li>
-    <li><a href="#spreker">Spreker</a></li>
-    <li><a href="#rsvp">Aanmelden</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-deco"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">Persoonlijke uitnodiging</div>
-    <h1><em>Gelijkspel</em><br/><span style="color:var(--white); display:inline-block; margin-top:12px;">in Sport.</span></h1>
-    <p class="hero-intro">
-      Een inspirerende middag voor 160 zorgvuldig geselecteerde changemakers die het speelveld van sport eerlijker en toekomstbestendiger willen maken. Met keynote speaker <strong style="color:var(--lime); font-weight:800;">Eva de Mol</strong>.
-    </p>
-    <p class="hero-sub">
-      Sport verbindt. Sport inspireert. En sport kan de motor zijn voor echte verandering.
-    </p>
-    <div class="hero-meta">
-      <div class="meta-item">
-        <span class="meta-icon">📅</span>
-        <div class="meta-text">11 mei 2026<span>Maandag</span></div>
-      </div>
-      <div class="meta-item">
-        <span class="meta-icon">🕒</span>
-        <div class="meta-text">15:00 – 18:30<span>Inloop vanaf 15:00</span></div>
-      </div>
-      <div class="meta-item">
-        <span class="meta-icon">📍</span>
-        <div class="meta-text">Bernardus Golf<span>Cromvoirt</span></div>
-      </div>
+<div class="header">
+  <div class="header-inner">
+    <div class="header-logos">
+      <!-- Solheim Cup logo — upload image1.png to your GitHub repo root and update this src -->
+      <img src="logos/image1.png" alt="Solheim Cup 2026 · Bernardus Netherlands" style="height:56px;width:auto;" onerror="this.outerHTML='<svg height=\'22\' viewBox=\'0 0 260 22\' xmlns=\'http://www.w3.org/2000/svg\'><text x=\'0\' y=\'18\' font-family=\'Arial\' font-weight=\'700\' font-size=\'18\' fill=\'white\' letter-spacing=\'1\'>SOLHEIM CUP 2026</text></svg>'">
+      <div class="divider-v"></div>
+      <img src="logos/image2.png" alt="Bernardus" style="height:18px;width:auto;filter:brightness(0) invert(1);" onerror="this.outerHTML='<svg height=\'16\' viewBox=\'0 0 370 24\' xmlns=\'http://www.w3.org/2000/svg\'><text x=\'0\' y=\'20\' font-family=\'Arial\' font-weight=\'700\' font-size=\'18\' fill=\'white\' letter-spacing=\'10\'>BERNARDUS</text></svg>'">
+      <div class="divider-v"></div>
+      <img src="logos/image3.png" alt="SAM" style="height:36px;width:auto;mix-blend-mode:screen;" onerror="this.outerHTML='<div style=\'background:#c8f000;border-radius:3px;padding:4px 10px;\'><span style=\'font-family:Arial;font-weight:900;font-size:16px;color:#000;\'>S4M®</span></div>'">
     </div>
-    <a href="#rsvp" class="hero-cta">Meld je aan</a>
+    <div class="header-title">
+      <h1>Stakeholderdag Solheim Cup 2026</h1>
+      <div class="sub">Maandag 7 september · Bernardus Golf, Cromvoirt · Parallel aan PING Junior Solheim Cup</div>
+    </div>
   </div>
-</section>
+  <div class="gold-bar"></div>
+</div>
 
-<!-- STATS -->
-<div class="stats-section">
-  <div class="stats-grid">
-    <div class="stat-item">
-      <div class="stat-number">15%</div>
-      <div class="stat-label">van alle sportmedia-aandacht gaat naar vrouwen</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">40%</div>
-      <div class="stat-label">minder verdienen vrouwelijke topsporters gemiddeld</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">1 op 4</div>
-      <div class="stat-label">sportbestuurders is vrouw</div>
-    </div>
-
+<div style="background:#323741;">
+  <div class="nav-strip">
+    <div class="nav-item"><div class="nav-dot" style="background:#002664;"></div>Plenair</div>
+    <div class="nav-item"><div class="nav-dot" style="background:#003399;"></div>Celebrate Nature</div>
+    <div class="nav-item"><div class="nav-dot" style="background:#BB133E;"></div>Celebrate Women / SAM</div>
+    <div class="nav-item"><div class="nav-dot" style="background:#FFCC00;"></div>Live PING Junior</div>
+    <div class="nav-item"><div class="nav-dot" style="background:#888;"></div>Ontvangst / pauze / borrel</div>
   </div>
 </div>
 
-<!-- ABOUT -->
-<section class="about-section">
-  <div class="about-inner">
-    <span class="section-label">Over deze middag</span>
-    <h2 class="section-title">Twee rondes.<br/>Één doel.</h2>
+<div class="page">
 
-    <div class="about-quote">
-      <p>De kracht van sport is groot. Het speelveld is nog niet in balans. Tijd voor verandering.</p>
-    </div>
+<div class="daypart">☀ Ochtendprogramma</div>
 
-    <p class="section-lead" style="max-width:680px; margin-bottom: 20px;">
-      Je stapt niet in een gesprek — je stapt in een beweging. Stichting SAM, NGF en Bernardus brengen op 11 mei een zorgvuldig samengesteld gezelschap samen: mensen die invloed hebben, verantwoordelijkheid voelen en willen bijdragen aan een sportwereld die eerlijker is.
-    </p>
-    <p class="section-lead" style="max-width:680px;">
-      Je doet mee aan alle onderdelen. De middag is opgebouwd in twee rondes — je ervaart zowel de golf als de kennissessie met SAM en Eva de Mol. Zo kom je weg met een volledige ervaring én inzichten die je meeneemt naar je organisatie.
-    </p>
-  </div>
-</section>
-
-<!-- PROGRAMME COMPONENTS -->
-<section class="components-section" id="onderdelen">
-  <div class="components-inner">
-    <span class="section-label">Wat je kunt verwachten</span>
-    <h2 class="section-title">De onderdelen.</h2>
-    <p class="section-lead">Iedere deelnemer doet beide onderdelen. Je begint bij golf of bij de kennissessie — na de wissel draai je de route om.</p>
-
-    <div class="components-grid">
-
-      <div class="component-card">
-        <span class="component-icon">⛳</span>
-        <span class="component-tag tag-golf">Golf · Team Bernardus</span>
-        <h3>Driving Range — Team Scoring</h3>
-        <p>Sla direct mee. Teams scoren gezamenlijk punten door targets te raken. Samenwerking en energie staan centraal — geen techniekles, gewoon spelen.</p>
-      </div>
-
-      <div class="component-card">
-        <span class="component-icon">🏌️</span>
-        <span class="component-tag tag-golf">Golf · Team Bernardus</span>
-        <h3>Short Game Area &amp; Putting Course</h3>
-        <p>Speel een putting parcours in scramble-format. Aansluitend bij het Solheim Cup-thema. Toegankelijk voor beginner tot gevorderd.</p>
-      </div>
-
-      <div class="component-card">
-        <span class="component-icon">🎙️</span>
-        <span class="component-tag tag-sam">Kennis &amp; Inspiratie · SAM</span>
-        <h3>Deel je stem</h3>
-        <p>Maak kennis met Gelijkspel in Sport. Via interactieve werkvormen bespreek je ervaringen en kansen. Jouw input vormt de basis voor het nieuwe speelveld.</p>
-      </div>
-
-      <div class="component-card">
-        <span class="component-icon">💡</span>
-        <span class="component-tag tag-sam">Keynote · Eva de Mol</span>
-        <h3>Inspiratie met Eva de Mol</h3>
-        <p>Een energieke sessie over leiderschap — met humor en scherpte. Eva de Mol daagt de status quo uit en laat je anders kijken naar systemen, macht en verandering.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- PROGRAMME TIMELINE -->
-<section class="programme-section" id="programma">
-  <div class="programme-inner">
-    <div class="programme-header">
-      <span class="section-label">Programma</span>
-      <h2 class="section-title">Jouw middag,<br/>stap voor stap.</h2>
-    </div>
-    <div class="timeline">
-
-      <div class="tl-item">
-        <div class="tl-time">15:00</div>
-        <div class="tl-dot"></div>
-        <div class="tl-content">
-          <h3>Inloop &amp; ontvangst</h3>
-          <p>Welkom bij Bernardus Golf. Neem een drankje en maak kennis met de andere genodigden.</p>
-        </div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-time">15:30</div>
-        <div class="tl-dot"></div>
-        <div class="tl-content">
-          <h3>Start ronde 1</h3>
-          <p>Je kiest je route voor de eerste ronde:</p>
-          <span class="tl-badge badge-golf">⛳ Golf · Team Bernardus</span>
-          &nbsp;
-          <span class="tl-badge badge-sam">🎙️ Kennis &amp; inspiratie · SAM &amp; Eva de Mol</span>
-        </div>
-      </div>
-
-      <div class="tl-item wissel">
-        <div class="tl-time">16:35</div>
-        <div class="tl-dot"></div>
-        <div class="tl-content">
-          <h3>Wissel van onderdeel</h3>
-          <p>Korte pauze. Groepen wisselen van programmaonderdeel.</p>
-        </div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-time">16:50</div>
-        <div class="tl-dot"></div>
-        <div class="tl-content">
-          <h3>Start ronde 2</h3>
-          <p>Nu het andere onderdeel — zo ervaar je de volledige middag:</p>
-          <span class="tl-badge badge-golf">⛳ Golf · Team Bernardus</span>
-          &nbsp;
-          <span class="tl-badge badge-sam">🎙️ Kennis &amp; inspiratie · SAM &amp; Eva de Mol</span>
-        </div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-time">18:00</div>
-        <div class="tl-dot"></div>
-        <div class="tl-content">
-          <h3>Netwerken &amp; borrel</h3>
-          <p>Sluit de middag af met een borrel en goede gesprekken. Met de mensen die er ook iets van willen maken.</p>
-          <span class="tl-badge badge-network">🥂 Borrel &amp; netwerk</span>
-        </div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-time">18:30</div>
-        <div class="tl-dot" style="background:rgba(255,255,245,.3); box-shadow:none;"></div>
-        <div class="tl-content" style="padding-bottom:0;">
-          <h3 style="color:rgba(255,255,245,.5);">Einde programma</h3>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- EVA DE MOL SPOTLIGHT -->
-<section class="spotlight-section" id="spreker">
-  <span class="section-label" style="display:block; text-align:center; margin-bottom:40px;">Keynote speaker</span>
-  <div class="spotlight-card">
-    <div class="spotlight-avatar">EM</div>
-    <div>
-      <div class="spotlight-role">Tech-investeerder · Wetenschapper · Auteur · Podcastmaker</div>
-      <h3>Eva de Mol</h3>
-      <p>Dr. Eva de Mol daagt de status quo uit in technologie, ondernemerschap en venture capital. Als medeoprichter van CapitalT investeert ze in veelbelovende techbedrijven met oog voor teamdynamiek en impact.</p>
-      <p>Vanuit haar promotieonderzoek aan de VU Universiteit en haar ervaring in Silicon Valley combineert ze data, visie en daadkracht. Met haar bestseller en podcast <em>DEAL WITH IT</em> geeft ze een scherpe blik achter de schermen van macht, geld en mythevorming.</p>
-      <p>Tijdens deze sessie deelt Eva de Mol haar inzichten over leiderschap, systemen en wat er nodig is om échte verandering te maken. Een gesprek dat je bijblijft.</p>
-      <div class="spotlight-tags">
-        <span class="spotlight-tag">Leiderschap</span>
-        <span class="spotlight-tag">Venture capital</span>
-        <span class="spotlight-tag">Teamdynamiek</span>
-        <span class="spotlight-tag">Systeemverandering</span>
-        <span class="spotlight-tag">DEAL WITH IT</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- RSVP -->
-<section class="rsvp-section" id="rsvp">
-  <div class="rsvp-inner">
-    <span class="section-label">Aanmelden</span>
-    <h2 class="section-title">Ben je er bij?</h2>
-    <p class="section-lead">Meld je aan voor 1 mei 2026. Deelname is uitsluitend op uitnodiging. Maximaal 160 plaatsen beschikbaar.</p>
-    <form class="rsvp-form" name="rsvp-gelijkspel" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-      <input type="hidden" name="form-name" value="rsvp-gelijkspel"/>
-      <p style="display:none;"><label>Bot veld: <input name="bot-field"/></label></p>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Voornaam *</label>
-          <input type="text" name="voornaam" required placeholder="Jouw voornaam"/>
-        </div>
-        <div class="form-group">
-          <label>Achternaam *</label>
-          <input type="text" name="achternaam" required placeholder="Jouw achternaam"/>
-        </div>
-      </div>
-      <div class="form-group">
-        <label>E-mailadres *</label>
-        <input type="email" name="email" required placeholder="naam@organisatie.nl"/>
-      </div>
-      <div class="form-group">
-        <label>Organisatie</label>
-        <input type="text" name="organisatie" placeholder="Jouw organisatie"/>
-      </div>
-      <div class="form-group">
-        <label>Functie</label>
-        <input type="text" name="functie" placeholder="Jouw functie"/>
-      </div>
-      <div class="form-group">
-        <label>Aanwezigheid *</label>
-        <select name="aanwezigheid" required>
-          <option value="" disabled selected>Maak een keuze</option>
-          <option value="ja">Ja, ik ben erbij!</option>
-          <option value="nee">Nee, ik kan helaas niet</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Golfervaring</label>
-        <select name="golfervaring">
-          <option value="" disabled selected>Maak een keuze</option>
-          <option value="geen">Geen — ik heb nog nooit gegolfd</option>
-          <option value="beginner">Beginner — een paar keer gespeeld</option>
-          <option value="recreatief">Recreatief — ik speel af en toe</option>
-          <option value="regelmatig">Regelmatig — ik speel met een handicap</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Dieetwensen</label>
-        <select name="dieetwensen">
-          <option value="" disabled selected>Maak een keuze</option>
-          <option value="geen">Geen bijzonderheden</option>
-          <option value="vegetarisch">Vegetarisch</option>
-          <option value="vegan">Vegan</option>
-          <option value="halal">Halal</option>
-          <option value="kosher">Kosher</option>
-          <option value="glutenvrij">Glutenvrij</option>
-          <option value="lactosevrij">Lactosevrij</option>
-          <option value="anders">Anders (zie bijzonderheden)</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Allergieën</label>
-        <textarea name="allergieen" placeholder="Heb je allergieën of intoleranties? Laat het ons weten." style="min-height:70px;"></textarea>
-      </div>
-
-      <button type="submit" class="form-submit">Aanmelding bevestigen →</button>
-      <p class="form-note">Je gegevens worden uitsluitend gebruikt voor de organisatie van dit evenement en niet gedeeld met derden.</p>
-    </form>
-  </div>
-</section>
-
-<!-- PARTNERS -->
-<div class="partners-section">
-  <p class="partners-label">Een initiatief van</p>
-  <div class="partners-logos">
-    <div class="partner-logo">
-      <img src="logos/sam-logo.png" alt="Stichting SAM"/>
-    </div>
-    <div class="partner-logo">
-      <img src="logos/ngf-logo.png" alt="Koninklijke Nederlandse Golf Federatie"/>
-    </div>
-    <div class="partner-logo">
-      <img src="logos/solheim-bernardus-logo.png" alt="Solheim Cup 2026 — Bernardus Netherlands"/>
-    </div>
-  </div>
-  <p class="partners-label" style="margin-top:48px;">Mede mogelijk gemaakt door</p>
-  <div class="partners-logos">
-    <div class="partner-logo">
-      <img src="logos/brabantsport-logo.png" alt="BrabantSport"/>
+<div class="row">
+  <div class="tc"><span>09:00</span></div>
+  <div class="blocks">
+    <div class="block b-gray">
+      <div class="block-title">Ontvangst &amp; kennismaking</div>
+      <div class="block-desc">Koffie, thee en worstenbroodjes op het landgoed. Deelnemers leren elkaar kennen en verkennen de omgeving van Bernardus Golf.</div>
+      <span class="block-badge badge-gray">Iedereen · 45 min</span>
+      <div class="location">Brabant Pavillion</div>
     </div>
   </div>
 </div>
 
-<!-- FOOTER -->
-<div class="footer-wrap">
-  <div class="footer-main">
-    <div class="footer-brand-col">
-      <div class="footer-brand-logo">
-        <img src="logos/sam-logo.png" alt="Stichting SAM"/>
-      </div>
-      <p class="footer-tagline">Samen voor gelijkwaardigheid in sport.</p>
-      <div class="footer-email">
-        <a href="mailto:info@stichting-sam.com">info@stichting-sam.com</a>
-      </div>
-    </div>
-    <div class="footer-col">
-      <h4>Locatie</h4>
-      <p>Bernardus Golf<br/>Deutersestraat 39<br/>5266 NH Cromvoirt</p>
-    </div>
-    <div class="footer-col">
-      <h4>Pagina</h4>
-      <ul>
-        <li><a href="#programma">Programma</a></li>
-        <li><a href="#onderdelen">Onderdelen</a></li>
-        <li><a href="#spreker">Spreker</a></li>
-        <li><a href="#rsvp">Aanmelden</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Stichting SAM</h4>
-      <ul>
-        <li><a href="https://www.stichting-sam.com" target="_blank">Over SAM</a></li>
-        <li><a href="https://www.stichting-sam.com/nl/nieuws" target="_blank">Nieuws</a></li>
-        <li><a href="https://www.stichting-sam.com/nl/contact" target="_blank">Contact</a></li>
-      </ul>
+<div class="divider"></div>
+<div class="section-label">Plenair blok · 45 min totaal</div>
+
+<div class="row">
+  <div class="tc"><span>09:45</span></div>
+  <div class="blocks">
+    <div class="block b-navy">
+      <div class="block-title">Plenaire aftrap</div>
+      <div class="block-desc">Welkomstwoord en opening van de dag. De Solheim Cup als platform voor verandering. Introductie van de twee pijlers Celebrate Nature en Celebrate Women, en het dagprogramma.</div>
+      <span class="block-badge badge-navy">Iedereen · 15 min</span>
+      <div class="speaker">🎤 Jeroen Stevens</div>
+      <div class="location">Bernardus Clubhouse / Main Stage Fanzone</div>
     </div>
   </div>
-  <div class="footer-bottom">
-    <div class="footer-legal">
-      <a href="https://www.stichting-sam.com/nl/privacy" target="_blank">Privacy policy</a>
-      <a href="https://www.stichting-sam.com/nl/veelgestelde-vragen" target="_blank">Veelgestelde vragen</a>
+</div>
+
+<div class="row" style="margin-top:3px;">
+  <div class="tc"><span>10:00</span></div>
+  <div class="blocks">
+    <div class="block b-navy" style="border-left-color:transparent;background:transparent;padding:4px 0 0;">
+      <div class="intro-split">
+        <div class="ih ih-blue">
+          <div class="ih-title">🌿 Celebrate Nature · 15 min</div>
+          <div class="ih-desc">Duurzaamheidsambities Solheim Cup 2026. Green Events aanpak: impactmeting, strategie, actieplan. Bernardus als voorbeeld: Van Gogh NP, Farm-to-Table, biodiversiteit.</div>
+        </div>
+        <div class="ih ih-red">
+          <div class="ih-title">⚡ Celebrate Women / SAM · 15 min</div>
+          <div class="ih-desc">67% meisjes stopt voor 18e. Kracht van sport voor mentale gezondheid en zelfvertrouwen. SAM als beweging voor gelijkwaardigheid in de sport.</div>
+        </div>
+      </div>
+      <div class="badge-row">
+        <span class="block-badge badge-navy">Iedereen · 2 × 15 min</span>
+        <span class="block-badge badge-gold">Totaal plenair: 45 min ✓</span>
+      </div>
     </div>
-    <span class="footer-copy">© 2026 Stichting SAM · Gelijkspel in Sport · 11 mei 2026</span>
+  </div>
+</div>
+
+<div class="divider"></div>
+<div class="section-label">Ronde 1 · 3 parallelle smaken · 45 min · deelnemers kiezen zelf</div>
+
+<div class="row">
+  <div class="tc"><span>10:30</span></div>
+  <div class="blocks">
+    <div class="pb pb-blue">
+      <div class="pb-title">🌿 Celebrate Nature</div>
+      <div class="pb-desc">Veldbezoek &amp; rondleiding: biodiversiteitsstroken, waterhuishouding, toekomstige moestuin, Van Gogh NP partnerschap. Kennisdeling met golfbanen en partners.</div>
+      <div class="pb-foot">Buiten · 2 groepen · max 20 p.g.</div>
+      <div class="pb-loc">Rondleiding over het terrein</div>
+    </div>
+    <div class="pb pb-red">
+      <div class="pb-title">⚡ Werkgroep SAM</div>
+      <div class="pb-desc">Inspiratielezing door een extern vrouwelijk rolmodel, gevolgd door co-creatie: welke rol spelen golfbanen, bonden en partners? Concrete afspraken en actiepunten als output.</div>
+      <div class="pb-foot">Binnen · 2 groepen · max 20 p.g.</div>
+      <div class="pb-loc">Bernardus Clubhouse / Bernardus Bar</div>
+    </div>
+    <div class="pb pb-gold">
+      <div class="pb-title">⛳ Live PING Junior</div>
+      <div class="pb-desc">Begeleide wandeling langs de baan. Toelichting op format en talenten. De volgende generatie vrouwelijke golfers in actie.</div>
+      <div class="pb-foot">Op de baan · 2 groepen · max 20 p.g.</div>
+      <div class="pb-loc">1st Tee</div>
+    </div>
+  </div>
+</div>
+<div class="trange">↑ 10:30 – 11:15</div>
+
+<div class="divider"></div>
+
+<div class="row">
+  <div class="tc"><span>11:15</span></div>
+  <div class="blocks">
+    <div class="block b-amber">
+      <div class="block-title">Pauze</div>
+      <div class="block-desc">Koffie en thee. Ruimte om van groep te wisselen voor ronde 2.</div>
+      <span class="block-badge badge-gold">Iedereen · 15 min</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+<div class="repeat-note">↻ Dezelfde drie smaken herhalen zich — iedereen kan van smaak wisselen</div>
+<div class="section-label">Ronde 2 · 3 parallelle smaken · 45 min</div>
+
+<div class="row">
+  <div class="tc"><span>11:30</span></div>
+  <div class="blocks">
+    <div class="pb pb-blue">
+      <div class="pb-title">🌿 Celebrate Nature</div>
+      <div class="pb-desc">Herhaling veldbezoek voor groep 2. Zelfde rondleiding, nieuwe deelnemers.</div>
+      <div class="pb-foot">Buiten · 2 groepen · max 20 p.g.</div>
+      <div class="pb-loc">Rondleiding over het terrein</div>
+    </div>
+    <div class="pb pb-red">
+      <div class="pb-title">⚡ Werkgroep SAM</div>
+      <div class="pb-desc">Herhaling voor groep 2: inspiratielezing en co-creatie. Deelnemers uit ronde 1 gaan nu aan de slag met de brainstorm en actiepunten.</div>
+      <div class="pb-foot">Binnen · 2 groepen · max 20 p.g.</div>
+      <div class="pb-loc">Bernardus Clubhouse / Bernardus Bar</div>
+    </div>
+    <div class="pb pb-gold">
+      <div class="pb-title">⛳ Live PING Junior</div>
+      <div class="pb-desc">Tweede ronde begeleide wandeling langs de baan. Idem format, andere bezoekers.</div>
+      <div class="pb-foot">Op de baan · 2 groepen · max 20 p.g.</div>
+      <div class="pb-loc">1st Tee</div>
+    </div>
+  </div>
+</div>
+<div class="trange">↑ 11:30 – 12:15</div>
+
+<div class="divider"></div>
+
+<div class="row">
+  <div class="tc"><span>12:15</span></div>
+  <div class="blocks">
+    <div class="block b-gray">
+      <div class="block-title">Gezamenlijke lunch · Noble Kitchen</div>
+      <div class="block-desc">Lunch met lokale en seizoensgebonden ingrediënten (Farm-to-Table). Informele uitwisseling en netwerk.</div>
+      <span class="block-badge badge-gray">Iedereen · 90 min</span>
+      <span class="block-badge badge-navy">Farm-to-table</span>
+      <div class="location">Brabant Pavillion</div>
+    </div>
+  </div>
+</div>
+
+<div class="daypart" style="margin-top:28px;">🌤 Middagprogramma · herhaling volledig programma voor nieuwe groep</div>
+
+<div class="divider"></div>
+<div class="section-label">Plenair blok · 45 min totaal</div>
+
+<div class="row">
+  <div class="tc"><span>13:45</span></div>
+  <div class="blocks">
+    <div class="block b-navy">
+      <div class="block-title">Plenaire aftrap middag</div>
+      <div class="block-desc">Welkomstwoord voor de middaggroep. Introductie van de dag, de twee pijlers en het programma voor nieuwe aanwezigen.</div>
+      <span class="block-badge badge-navy">Iedereen · 15 min</span>
+      <div class="speaker">🎤 Jeroen Stevens</div>
+      <div class="location">Bernardus Clubhouse / Main Stage Fanzone</div>
+    </div>
+  </div>
+</div>
+
+<div class="row" style="margin-top:3px;">
+  <div class="tc"><span>14:00</span></div>
+  <div class="blocks">
+    <div class="block b-navy" style="border-left-color:transparent;background:transparent;padding:4px 0 0;">
+      <div class="intro-split">
+        <div class="ih ih-blue">
+          <div class="ih-title">🌿 Celebrate Nature · 15 min</div>
+          <div class="ih-desc">Herhaling introductie duurzaamheidsambities en Bernardus als voorbeeld voor de golfsector.</div>
+        </div>
+        <div class="ih ih-red">
+          <div class="ih-title">⚡ Celebrate Women / SAM · 15 min</div>
+          <div class="ih-desc">Herhaling SAM-introductie voor de middaggroep. Zelfde inhoud, nieuwe deelnemers.</div>
+        </div>
+      </div>
+      <div class="badge-row">
+        <span class="block-badge badge-navy">Iedereen · 2 × 15 min</span>
+        <span class="block-badge badge-gold">Totaal plenair: 45 min ✓</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+<div class="section-label">Ronde 3 · 3 parallelle smaken · 45 min</div>
+
+<div class="row">
+  <div class="tc"><span>14:45</span></div>
+  <div class="blocks">
+    <div class="pb pb-blue">
+      <div class="pb-title">🌿 Celebrate Nature</div>
+      <div class="pb-desc">Veldbezoek voor de middaggroep. Zelfde inhoud als ochtend.</div>
+      <div class="pb-foot">Buiten · 2 groepen · max 20 p.g.</div>
+      <div class="pb-loc">Rondleiding over het terrein</div>
+    </div>
+    <div class="pb pb-red">
+      <div class="pb-title">⚡ Werkgroep SAM</div>
+      <div class="pb-desc">Inspiratielezing en co-creatie voor de middaggroep. Zelfde opzet, nieuwe deelnemers en input.</div>
+      <div class="pb-foot">Binnen · 2 groepen · max 20 p.g.</div>
+      <div class="pb-loc">Bernardus Clubhouse / Bernardus Bar</div>
+    </div>
+    <div class="pb pb-gold">
+      <div class="pb-title">⛳ Live PING Junior</div>
+      <div class="pb-desc">Begeleide wandeling langs de baan voor de middaggroep.</div>
+      <div class="pb-foot">Op de baan · 2 groepen · max 20 p.g.</div>
+      <div class="pb-loc">1st Tee</div>
+    </div>
+  </div>
+</div>
+<div class="trange">↑ 14:45 – 15:30</div>
+
+<div class="divider"></div>
+
+<div class="row">
+  <div class="tc"><span>15:30</span></div>
+  <div class="blocks">
+    <div class="block b-amber">
+      <div class="block-title">Pauze</div>
+      <div class="block-desc">Koffie en thee. Ruimte om van groep te wisselen voor ronde 4.</div>
+      <span class="block-badge badge-gold">Iedereen · 15 min</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+<div class="repeat-note">↻ Dezelfde drie smaken herhalen zich — iedereen kan van smaak wisselen</div>
+<div class="section-label">Ronde 4 · 3 parallelle smaken · 45 min</div>
+
+<div class="row">
+  <div class="tc"><span>15:45</span></div>
+  <div class="blocks">
+    <div class="pb pb-blue">
+      <div class="pb-title">🌿 Celebrate Nature</div>
+      <div class="pb-desc">Herhaling veldbezoek voor groep 2 van de middag.</div>
+      <div class="pb-foot">Buiten · 2 groepen · max 20 p.g.</div>
+      <div class="pb-loc">Rondleiding over het terrein</div>
+    </div>
+    <div class="pb pb-red">
+      <div class="pb-title">⚡ Werkgroep SAM</div>
+      <div class="pb-desc">Herhaling inspiratielezing en werkgroep voor groep 2 van de middag.</div>
+      <div class="pb-foot">Binnen · 2 groepen · max 20 p.g.</div>
+      <div class="pb-loc">Bernardus Clubhouse / Bernardus Bar</div>
+    </div>
+    <div class="pb pb-gold">
+      <div class="pb-title">⛳ Live PING Junior</div>
+      <div class="pb-desc">Laatste ronde begeleide wandeling langs de baan.</div>
+      <div class="pb-foot">Op de baan · 2 groepen · max 20 p.g.</div>
+      <div class="pb-loc">1st Tee</div>
+    </div>
+  </div>
+</div>
+<div class="trange">↑ 15:45 – 16:30</div>
+
+<div class="divider"></div>
+
+<div class="row">
+  <div class="tc"><span>16:30</span></div>
+  <div class="blocks">
+    <div class="block b-gray">
+      <div class="block-title">Informele borrel &amp; netwerk</div>
+      <div class="block-desc">Borrel op het terras van Bernardus Golf. Gelegenheid om nieuwe partnerships te bespreken en de dag af te sluiten in de natuur.</div>
+      <span class="block-badge badge-gray">Vrij · tot ± 18:00</span>
+      <div class="location">Bernardus Bar</div>
+    </div>
+  </div>
+</div>
+
+<div class="bottom">
+  <div class="card">
+    <h3>Capaciteit per ronde</h3>
+    <table>
+      <tr><th>Smaak</th><th>Groepen</th><th class="num">Pers.</th></tr>
+      <tr><td>Celebrate Nature</td><td>2 × 1 gids</td><td class="num">40</td></tr>
+      <tr><td>Werkgroep SAM</td><td>2 × 1 facilitator</td><td class="num">40</td></tr>
+      <tr><td>Live PING Junior</td><td>2 × 1 begeleider</td><td class="num">40</td></tr>
+      <tr class="total hl"><td>Per ronde</td><td></td><td class="num">±120</td></tr>
+    </table>
+    <p class="note">Per dagdeel 2 rondes → <strong>120 unieke deelnemers</strong>.<br>Ochtend + middag → <strong>±240 totaal over de dag</strong>.</p>
+    <table style="margin-top:12px;">
+      <tr><th>Begeleiders per dagdeel</th><th class="num">Aantal</th></tr>
+      <tr><td>Rondleidingsgidsen (Nature)</td><td class="num">4</td></tr>
+      <tr><td>Gespreksleiders (SAM)</td><td class="num">4</td></tr>
+      <tr><td>PING Junior begeleider</td><td class="num">2</td></tr>
+      <tr class="total"><td>Totaal</td><td class="num">10</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>Kostencalculatie per persoon</h3>
+    <table>
+      <tr><th>Post</th><th class="num">p.p.</th></tr>
+      <tr><td>Dagticket Solheim Cup</td><td class="num">€ 25,00</td></tr>
+      <tr><td style="font-size:10px;color:#888;padding-top:7px;" colspan="2">F&amp;B minimum (verplicht aanbod)</td></tr>
+      <tr><td>Ontvangst koffie &amp; gebak</td><td class="num">€ 6,00</td></tr>
+      <tr><td>Pauze koffie &amp; thee</td><td class="num">€ 3,00</td></tr>
+      <tr><td>Lunch Noble Kitchen</td><td class="num">€ 28,00</td></tr>
+      <tr><td>Borrel</td><td class="num">€ 12,00</td></tr>
+      <tr class="total hl"><td>Totaal per persoon</td><td class="num">€ 74,00</td></tr>
+    </table>
+    <table style="margin-top:12px;">
+      <tr><th>Scenario</th><th class="num">Totaal</th></tr>
+      <tr><td>120 pers. (1 dagdeel)</td><td class="num">€ 8.880</td></tr>
+      <tr><td>240 pers. (hele dag)</td><td class="num">€ 17.760</td></tr>
+    </table>
+    <p class="note">Excl. begeleiders, externe spreker, AV/materialen en communicatiekosten.<br>Sponsoring via SAM, Green Events of NGF kan kosten drukken.</p>
+  </div>
+</div>
+
+</div>
+
+<div class="footer">
+  <div class="footer-gold"></div>
+  <div class="footer-inner">
+    <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+      <img src="logos/image1.png" alt="Solheim Cup 2026" style="height:36px;width:auto;" onerror="this.style.display='none'">
+      <img src="logos/image2.png" alt="Bernardus" style="height:12px;width:auto;filter:brightness(0) invert(0.6);" onerror="this.style.display='none'">
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
+      <span><a href="https://www.solheimcup.com" target="_blank" style="color:#CED9E5;text-decoration:none;letter-spacing:.05em;">solheimcup.com</a></span>
+      <span><a href="https://www.bernardus.nl" target="_blank" style="color:#CED9E5;text-decoration:none;letter-spacing:.05em;">bernardus.nl</a></span>
+    </div>
   </div>
 </div>
 
