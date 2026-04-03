@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Stakeholderdag · Solheim Cup 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:Arial,Helvetica,sans-serif;background:#f2f4f7;color:#323741;font-size:14px;line-height:1.5;}
+
+/* ── Language toggle bar ── */
+.lang-bar{background:#1a3a6b;padding:6px 24px;display:flex;justify-content:flex-end;max-width:100%;}
+.lang-inner{max-width:960px;width:100%;margin:0 auto;display:flex;justify-content:flex-end;gap:6px;}
+.lang-btn{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 12px;border-radius:3px;border:1px solid rgba(255,255,255,.4);background:transparent;color:rgba(255,255,255,.6);cursor:pointer;transition:all .15s;}
+.lang-btn.active{background:#FFCC00;color:#1a3a6b;border-color:#FFCC00;}
+.lang-btn:hover:not(.active){background:rgba(255,255,255,.1);color:#fff;}
+
+/* ── Header ── */
+.header{background:#fff;padding:0;border-bottom:3px solid #FFCC00;}
+.header-inner{max-width:960px;margin:0 auto;padding:24px 24px;display:flex;align-items:center;justify-content:space-between;gap:32px;}
+
+/* Left: title block */
+.header-title{text-align:left;flex:1;}
+.header-title h1{font-size:22px;font-weight:700;color:#1a3a6b;letter-spacing:.02em;line-height:1.3;}
+.header-title .sub{font-size:12px;color:#5a5e6a;margin-top:8px;font-weight:400;line-height:1.6;}
+
+/* Right: logos stacked */
+.header-right{display:flex;flex-direction:column;align-items:flex-end;gap:10px;flex-shrink:0;}
+.logo-sc img{height:120px;width:auto;display:block;}
+.logo-bernardus img{height:16px;width:auto;display:block;}
+
+/* ── Nav strip ── */
+.nav-outer{background:#2d3748;}
+.nav-strip{max-width:960px;margin:0 auto;padding:8px 24px;display:flex;gap:16px;flex-wrap:wrap;}
+.nav-item{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:#CED9E5;text-transform:uppercase;letter-spacing:.06em;}
+.nav-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0;}
+
+/* ── Main ── */
+.page{max-width:960px;margin:0 auto;padding:20px 16px 60px;}
+
+.section-label{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#003399;margin:18px 0 5px 0;border-left:2px solid #FFCC00;padding-left:8px;}
+.daypart{display:inline-flex;align-items:center;gap:8px;background:#1a3a6b;color:#FFCC00;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:6px 14px;border-radius:2px;margin:20px 0 10px 0;}
+
+.row{display:flex;margin-bottom:3px;align-items:stretch;}
+.tc{width:56px;flex-shrink:0;display:flex;align-items:flex-start;justify-content:flex-end;padding-right:10px;padding-top:13px;}
+.tc span{font-size:11px;font-weight:700;color:#003399;white-space:nowrap;}
+.blocks{flex:1;display:flex;gap:6px;}
+
+.block{flex:1;border-radius:4px;padding:11px 13px;}
+.b-gray{background:#fff;border:1px solid #e0e3e9;border-left:3px solid #888;}
+.b-navy{background:#e8ecf5;border-left:3px solid #1a3a6b;}
+.b-amber{background:#fff8e1;border-left:3px solid #FFCC00;}
+.block-title{font-size:13px;font-weight:700;color:#1a3a6b;margin-bottom:2px;}
+.block-desc{font-size:11px;color:#5a5e6a;line-height:1.5;}
+.block-badge{display:inline-block;font-size:10px;padding:2px 8px;border-radius:2px;margin-top:5px;font-weight:700;margin-right:3px;text-transform:uppercase;letter-spacing:.04em;}
+.badge-navy{background:#1a3a6b;color:#FFCC00;}
+.badge-gold{background:#FFCC00;color:#1a3a6b;}
+.badge-gray{background:#CED9E5;color:#323741;}
+.speaker{font-size:10px;color:#003399;margin-top:4px;font-weight:700;}
+.location{font-size:10px;color:#777;margin-top:4px;font-weight:600;}
+.location::before{content:"📍 ";}
+
+.pb{flex:1;border-radius:4px;padding:10px 11px;min-width:0;}
+.pb-blue{background:#e8ecf5;border-top:3px solid #1a3a6b;}
+.pb-red{background:#fdf0f3;border-top:3px solid #BB133E;}
+.pb-gold{background:#fffbee;border-top:3px solid #FFCC00;}
+.pb-title{font-size:12px;font-weight:700;color:#1a3a6b;margin-bottom:3px;}
+.pb-desc{font-size:11px;color:#5a5e6a;line-height:1.45;}
+.pb-foot{font-size:10px;color:#888;margin-top:4px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;}
+.pb-loc{font-size:10px;color:#777;margin-top:3px;font-weight:600;}
+.sam-collab{display:flex;align-items:center;gap:8px;margin-top:8px;padding-top:8px;border-top:1px solid #f0c0cc;}
+.sam-collab img{height:22px;width:auto;mix-blend-mode:multiply;}
+.sam-collab span{font-size:10px;color:#888;font-style:italic;}
+
+.intro-split{display:flex;gap:6px;}
+.ih{flex:1;border-radius:4px;padding:8px 10px;}
+.ih-blue{background:#e8ecf5;border-left:2px solid #003399;}
+.ih-red{background:#fdf0f3;border-left:2px solid #BB133E;}
+.ih-title{font-size:11px;font-weight:700;color:#1a3a6b;margin-bottom:3px;text-transform:uppercase;letter-spacing:.04em;}
+.ih-desc{font-size:11px;color:#5a5e6a;line-height:1.4;}
+
+.divider{height:1px;background:#dde1ea;margin:6px 0;}
+.repeat-note{background:#fffbee;border:1px solid #FFCC00;border-radius:3px;padding:6px 12px;margin:4px 0;font-size:11px;color:#1a3a6b;font-weight:700;}
+.trange{font-size:10px;color:#888;margin-top:3px;margin-bottom:1px;font-weight:700;padding-left:56px;}
+.badge-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px;}
+
+.bottom{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;}
+.card{background:#fff;border:1px solid #dde1ea;border-radius:4px;padding:16px 18px;border-top:3px solid #1a3a6b;}
+.card h3{font-size:12px;font-weight:700;color:#1a3a6b;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;}
+table{width:100%;border-collapse:collapse;font-size:12px;}
+th{text-align:left;font-size:10px;font-weight:700;color:#fff;background:#1a3a6b;text-transform:uppercase;letter-spacing:.05em;padding:5px 7px;}
+td{padding:5px 7px;color:#323741;border-bottom:1px solid #f0f2f5;vertical-align:top;}
+tr:last-child td{border-bottom:none;}
+.num{text-align:right;font-variant-numeric:tabular-nums;}
+.total td{font-weight:700;background:#e8ecf5;border-top:2px solid #1a3a6b;border-bottom:none;}
+.hl td{background:#fffbee;}
+.note{font-size:10px;color:#888;margin-top:8px;line-height:1.5;}
+
+/* ── Footer ── */
+.footer{background:#fff;margin-top:40px;border-top:1px solid #dde1ea;}
+.footer-gold{width:100%;height:3px;background:#FFCC00;}
+.footer-inner{max-width:960px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.footer-logos{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.footer-logo-sc img{height:84px;width:auto;display:block;}
+.footer-logo-b img{height:12px;width:auto;display:block;}
+.footer-links{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
+.footer-links a{font-size:10px;color:#1a3a6b;text-decoration:none;font-weight:700;letter-spacing:.05em;text-transform:uppercase;}
+.footer-links a:hover{color:#FFCC00;}
+
+/* ── Responsive ── */
+@media(max-width:700px){
+  .header-inner{flex-direction:column;align-items:center;text-align:center;padding:16px;}
+  .header-title{text-align:center;}
+  .header-title h1{font-size:16px;}
+  .header-right{align-items:center;}
+  .logo-sc img{height:90px;}
+  .logo-sam img{height:32px;}
+
+  .nav-strip{gap:10px;padding:8px 16px;}
+  .nav-item{font-size:10px;}
+  .page{padding:14px 12px 40px;}
+  .row{flex-direction:column;}
+  .tc{width:100%;justify-content:flex-start;padding:8px 0 2px 0;}
+  .blocks{flex-direction:column;}
+  .intro-split{flex-direction:column;}
+  .trange{padding-left:0;}
+  .bottom{grid-template-columns:1fr;}
+  .footer-inner{flex-direction:column;align-items:flex-start;}
+  .footer-links{align-items:flex-start;}
+}
+@media(min-width:701px) and (max-width:900px){
+  .page{padding:20px 20px 60px;}
+  .blocks{flex-wrap:wrap;}
+  .pb{min-width:calc(50% - 3px);}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ LANGUAGE TOGGLE ═══ -->
+<div class="lang-bar">
+  <div class="lang-inner">
+    <button class="lang-btn active" onclick="setLang('nl')" id="btn-nl">NL</button>
+    <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
+  </div>
+</div>
+
+<!-- ═══ HEADER ═══ -->
+<div class="header">
+  <div class="header-inner">
+    <div class="header-title">
+      <h1 data-nl="Stakeholderdag Solheim Cup 2026" data-en="Stakeholder Day Solheim Cup 2026">Stakeholderdag Solheim Cup 2026</h1>
+      <div class="sub" data-nl="Maandag 7 september · Bernardus Golf, Cromvoirt · Parallel aan PING Junior Solheim Cup" data-en="Monday 7 September · Bernardus Golf, Cromvoirt · Alongside the PING Junior Solheim Cup">Maandag 7 september · Bernardus Golf, Cromvoirt · Parallel aan PING Junior Solheim Cup</div>
+    </div>
+    <div class="header-right">
+      <div class="logo-sc">
+        <img src="logos/image1.png" alt="Solheim Cup 2026">
+      </div>
+      <div class="logo-bernardus">
+        <img src="logos/image2.png" alt="Bernardus">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ NAV STRIP ═══ -->
+<div class="nav-outer">
+  <div class="nav-strip">
+    <div class="nav-item"><div class="nav-dot" style="background:#4a7ab5;"></div><span data-nl="Plenair" data-en="Plenary">Plenair</span></div>
+    <div class="nav-item"><div class="nav-dot" style="background:#3a8a5a;"></div>Celebrate Nature</div>
+    <div class="nav-item"><div class="nav-dot" style="background:#BB133E;"></div><span data-nl="Celebrate Women" data-en="Celebrate Women">Celebrate Women</span></div>
+    <div class="nav-item"><div class="nav-dot" style="background:#FFCC00;"></div>Live PING Junior</div>
+    <div class="nav-item"><div class="nav-dot" style="background:#888;"></div><span data-nl="Ontvangst / pauze / borrel" data-en="Reception / break / drinks">Ontvangst / pauze / borrel</span></div>
+  </div>
+</div>
+
+<div class="page">
+
+<!-- OCHTEND -->
+<div class="daypart"><span data-nl="☀ Ochtendprogramma" data-en="☀ Morning Programme">☀ Ochtendprogramma</span></div>
+
+<div class="row">
+  <div class="tc"><span>09:00</span></div>
+  <div class="blocks">
+    <div class="block b-gray">
+      <div class="block-title" data-nl="Ontvangst &amp; kennismaking" data-en="Welcome &amp; introductions">Ontvangst &amp; kennismaking</div>
+      <div class="block-desc" data-nl="Koffie, thee en worstenbroodjes op het landgoed. Deelnemers leren elkaar kennen en verkennen de omgeving van Bernardus Golf." data-en="Coffee, tea and snacks on the estate. Participants get to know each other and explore the surroundings of Bernardus Golf.">Koffie, thee en worstenbroodjes op het landgoed. Deelnemers leren elkaar kennen en verkennen de omgeving van Bernardus Golf.</div>
+      <span class="block-badge badge-gray" data-nl="Iedereen · 45 min" data-en="All · 45 min">Iedereen · 45 min</span>
+      <div class="location">Brabant Pavillion</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+<div class="section-label" data-nl="Plenair blok · 45 min totaal" data-en="Plenary block · 45 min total">Plenair blok · 45 min totaal</div>
+
+<div class="row">
+  <div class="tc"><span>09:45</span></div>
+  <div class="blocks">
+    <div class="block b-navy">
+      <div class="block-title" data-nl="Plenaire aftrap" data-en="Opening plenary">Plenaire aftrap</div>
+      <div class="block-desc" data-nl="Welkomstwoord en opening van de dag. De Solheim Cup als platform voor verandering. Introductie van de twee pijlers Celebrate Nature en Celebrate Women, en het dagprogramma." data-en="Welcome address and opening of the day. The Solheim Cup as a platform for change. Introduction to the two pillars Celebrate Nature and Celebrate Women, and the day's programme.">Welkomstwoord en opening van de dag. De Solheim Cup als platform voor verandering. Introductie van de twee pijlers Celebrate Nature en Celebrate Women, en het dagprogramma.</div>
+      <span class="block-badge badge-navy" data-nl="Iedereen · 15 min" data-en="All · 15 min">Iedereen · 15 min</span>
+      <div class="speaker">🎤 Jeroen Stevens</div>
+      <div class="location" data-nl="Bernardus Clubhouse / Main Stage Fanzone" data-en="Bernardus Clubhouse / Main Stage Fan Zone">Bernardus Clubhouse / Main Stage Fanzone</div>
+    </div>
+  </div>
+</div>
+
+<div class="row" style="margin-top:3px;">
+  <div class="tc"><span>10:00</span></div>
+  <div class="blocks">
+    <div class="block b-navy" style="border-left-color:transparent;background:transparent;padding:4px 0 0;">
+      <div class="intro-split">
+        <div class="ih ih-blue">
+          <div class="ih-title" data-nl="🌿 Celebrate Nature · 15 min" data-en="🌿 Celebrate Nature · 15 min">🌿 Celebrate Nature · 15 min</div>
+          <div class="ih-desc" data-nl="De Solheim Cup 2026 zet een nieuwe standaard voor duurzame sportevenementen. Bernardus Golf — GEO-gecertificeerd, BREEAM-gebouwen, geen synthetische bestrijdingsmiddelen — is het levende bewijs dat golf en natuur kunnen samengaan. We bespreken de duurzaamheidsaanpak: zero-emissie mobiliteit, hernieuwbare energie, circulaire materialen, lokaal voedsel en actief natuurherstel." data-en="The Solheim Cup 2026 sets a new benchmark for sustainable sports events. Bernardus Golf — GEO certified, BREEAM buildings, no synthetic pesticides — is living proof that golf and nature can thrive together. We cover the sustainability approach: zero-emission mobility, renewable energy, circular materials, local food and active nature restoration.">De Solheim Cup 2026 zet een nieuwe standaard voor duurzame sportevenementen. Bernardus Golf — GEO-gecertificeerd, BREEAM-gebouwen, geen synthetische bestrijdingsmiddelen — is het levende bewijs dat golf en natuur kunnen samengaan. We bespreken de duurzaamheidsaanpak: zero-emissie mobiliteit, hernieuwbare energie, circulaire materialen, lokaal voedsel en actief natuurherstel.</div>
+        </div>
+        <div class="ih ih-red">
+          <div class="ih-title" data-nl="⚡ Celebrate Women · 15 min" data-en="⚡ Celebrate Women · 15 min">⚡ Celebrate Women · 15 min</div>
+          <div class="ih-desc" data-nl="Slechts 15% van alle sportmedia-aandacht gaat naar vrouwen. Vrouwensport ontvangt 10% van het sponsorbudget. Slechts 1 op de 4 sportbestuurders is vrouw. De Solheim Cup — het grootste vrouwensportevenement van 2026 — is meer dan een golftoernooi. Het is een platform om dit te veranderen." data-en="Only 15% of sports media coverage features women. Women's sport receives just 10% of sponsorship budgets. Only 1 in 4 sports board members is a woman. The Solheim Cup — the biggest women's sporting event of 2026 — is more than a golf tournament. It's a platform to change this.">Slechts 15% van alle sportmedia-aandacht gaat naar vrouwen. Vrouwensport ontvangt 10% van het sponsorbudget. Slechts 1 op de 4 sportbestuurders is vrouw. De Solheim Cup — het grootste vrouwensportevenement van 2026 — is meer dan een golftoernooi. Het is een platform om dit te veranderen.</div>
+        </div>
+      </div>
+      <div class="badge-row">
+        <span class="block-badge badge-navy" data-nl="Iedereen · 2 × 15 min" data-en="All · 2 × 15 min">Iedereen · 2 × 15 min</span>
+        <span class="block-badge badge-gold" data-nl="Totaal plenair: 45 min ✓" data-en="Total plenary: 45 min ✓">Totaal plenair: 45 min ✓</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+<div class="section-label" data-nl="Ronde 1 · 3 parallelle smaken · 45 min · deelnemers kiezen zelf" data-en="Round 1 · 3 parallel tracks · 45 min · participants choose freely">Ronde 1 · 3 parallelle smaken · 45 min · deelnemers kiezen zelf</div>
+
+<div class="row">
+  <div class="tc"><span>10:30</span></div>
+  <div class="blocks">
+    <div class="pb pb-blue">
+      <div class="pb-title">🌿 Celebrate Nature</div>
+      <div class="pb-desc" data-nl="Veldbezoek &amp; rondleiding: biodiversiteitsstroken, bijenkasten en wilde bijenburchten, waterhuishouding, Van Gogh NP partnerschap. Kennisdeling met golfbanen en partners over de GEO-gecertificeerde aanpak van Bernardus." data-en="Field visit &amp; guided tour: biodiversity strips, beehives and wild bee habitats, water management, Van Gogh NP partnership. Knowledge sharing with golf courses and partners on Bernardus's GEO-certified approach.">Veldbezoek &amp; rondleiding: biodiversiteitsstroken, bijenkasten en wilde bijenburchten, waterhuishouding, Van Gogh NP partnerschap. Kennisdeling met golfbanen en partners over de GEO-gecertificeerde aanpak van Bernardus.</div>
+      <div class="pb-foot" data-nl="Buiten · 2 groepen · max 20 p.g." data-en="Outdoors · 2 groups · max 20 p.g.">Buiten · 2 groepen · max 20 p.g.</div>
+      <div class="pb-loc" data-nl="Rondleiding over het terrein" data-en="Guided tour of the grounds">Rondleiding over het terrein</div>
+    </div>
+    <div class="pb pb-red">
+      <div class="pb-title" data-nl="⚡ Celebrate Women" data-en="⚡ Celebrate Women">⚡ Celebrate Women</div>
+      <div class="pb-desc" data-nl="Inspiratielezing door een extern vrouwelijk rolmodel, gevolgd door co-creatie: welke rol spelen golfbanen, bonden en partners? In golf is de verhouding 68,5% man vs. 31,5% vrouw — bij de leeftijdsgroep 25–50 jaar zelfs 76% vs. 24%. De Solheim Cup is het podium om dit te doorbreken. We delen ook de eerste resultaten van het programma Gelijkspel in Sport, waarbij drie Brabantse golfclubs hebben meegedaan. Concrete afspraken en actiepunten als output." data-en="Inspirational talk by an external female role model, followed by co-creation: what role can golf clubs, federations and partners play? In golf the ratio is 68.5% men vs. 31.5% women — in the 25–50 age group even 76% vs. 24%. The Solheim Cup is the platform to break this. We also share the first results of the Equal Play in Sport programme, in which three Brabant golf clubs participated. Concrete agreements and action points as output.">Inspiratielezing door een extern vrouwelijk rolmodel, gevolgd door co-creatie: welke rol spelen golfbanen, bonden en partners? In golf is de verhouding 68,5% man vs. 31,5% vrouw — bij de leeftijdsgroep 25–50 jaar zelfs 76% vs. 24%. De Solheim Cup is het podium om dit te doorbreken. We delen ook de eerste resultaten van het programma Gelijkspel in Sport, waarbij drie Brabantse golfclubs hebben meegedaan. Concrete afspraken en actiepunten als output.</div>
+      <div class="pb-foot" data-nl="Binnen · 2 groepen · max 20 p.g." data-en="Indoors · 2 groups · max 20 p.g.">Binnen · 2 groepen · max 20 p.g.</div>
+      <div class="pb-loc">Bernardus Clubhouse / Bernardus Bar</div>
+      <div class="sam-collab"><img src="logos/image3.png" alt="SAM"><span data-nl="in samenwerking met Stichting SAM" data-en="in collaboration with Stichting SAM">in samenwerking met Stichting SAM</span></div>
+    </div>
+    <div class="pb pb-gold">
+      <div class="pb-title">⛳ Live PING Junior</div>
+      <div class="pb-desc" data-nl="Begeleide wandeling langs de baan. Toelichting op format en talenten. De volgende generatie vrouwelijke golfers in actie." data-en="Guided walk along the course. Commentary on format and talent. The next generation of female golfers in action.">Begeleide wandeling langs de baan. Toelichting op format en talenten. De volgende generatie vrouwelijke golfers in actie.</div>
+      <div class="pb-foot" data-nl="Op de baan · 2 groepen · max 20 p.g." data-en="On the course · 2 groups · max 20 p.g.">Op de baan · 2 groepen · max 20 p.g.</div>
+      <div class="pb-loc">1st Tee</div>
+    </div>
+  </div>
+</div>
+<div class="trange">↑ 10:30 – 11:15</div>
+
+<div class="divider"></div>
+
+<div class="row">
+  <div class="tc"><span>11:15</span></div>
+  <div class="blocks">
+    <div class="block b-amber">
+      <div class="block-title" data-nl="Pauze" data-en="Break">Pauze</div>
+      <div class="block-desc" data-nl="Koffie en thee. Ruimte om van groep te wisselen voor ronde 2." data-en="Coffee and tea. Time to switch tracks for round 2.">Koffie en thee. Ruimte om van groep te wisselen voor ronde 2.</div>
+      <span class="block-badge badge-gold" data-nl="Iedereen · 15 min" data-en="All · 15 min">Iedereen · 15 min</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+<div class="repeat-note" data-nl="↻ Dezelfde drie smaken herhalen zich — iedereen kan van smaak wisselen" data-en="↻ The same three tracks repeat — participants may switch tracks">↻ Dezelfde drie smaken herhalen zich — iedereen kan van smaak wisselen</div>
+<div class="section-label" data-nl="Ronde 2 · 3 parallelle smaken · 45 min" data-en="Round 2 · 3 parallel tracks · 45 min">Ronde 2 · 3 parallelle smaken · 45 min</div>
+
+<div class="row">
+  <div class="tc"><span>11:30</span></div>
+  <div class="blocks">
+    <div class="pb pb-repeat pb-blue" onclick="togglePb(this)">
+      <div class="pb-repeat-header">
+        <div class="pb-title">🌿 Celebrate Nature</div>
+        <span class="pb-repeat-tag" data-nl="Herhaling groep 2" data-en="Repeat group 2">Herhaling groep 2</span>
+        <span class="pb-chevron">▼</span>
+      </div>
+      <div class="pb-repeat-body">
+        <div class="pb-desc" data-nl="Veldbezoek &amp; rondleiding: biodiversiteitsstroken, bijenkasten en wilde bijenburchten, waterhuishouding, Van Gogh NP partnerschap. Kennisdeling met golfbanen en partners over de GEO-gecertificeerde aanpak van Bernardus." data-en="Field visit &amp; guided tour: biodiversity strips, beehives and wild bee habitats, water management, Van Gogh NP partnership. Knowledge sharing with golf courses and partners on Bernardus's GEO-certified approach.">Veldbezoek &amp; rondleiding: biodiversiteitsstroken, bijenkasten en wilde bijenburchten, waterhuishouding, Van Gogh NP partnerschap. Kennisdeling met golfbanen en partners over de GEO-gecertificeerde aanpak van Bernardus.</div>
+        <div class="pb-foot" data-nl="Buiten · 2 groepen · max 20 p.g." data-en="Outdoors · 2 groups · max 20 p.g.">Buiten · 2 groepen · max 20 p.g.</div>
+        <div class="pb-loc" data-nl="Rondleiding over het terrein" data-en="Guided tour of the grounds">Rondleiding over het terrein</div>
+      </div>
+    </div>
+    <div class="pb pb-repeat pb-red" onclick="togglePb(this)">
+      <div class="pb-repeat-header">
+        <div class="pb-title">⚡ Celebrate Women</div>
+        <span class="pb-repeat-tag" data-nl="Herhaling groep 2" data-en="Repeat group 2">Herhaling groep 2</span>
+        <span class="pb-chevron">▼</span>
+      </div>
+      <div class="pb-repeat-body">
+        <div class="pb-desc" data-nl="Inspiratielezing door een extern vrouwelijk rolmodel, gevolgd door co-creatie: welke rol spelen golfbanen, bonden en partners? In golf is de verhouding 68,5% man vs. 31,5% vrouw — bij de leeftijdsgroep 25–50 jaar zelfs 76% vs. 24%. De Solheim Cup is het podium om dit te doorbreken. We delen ook de eerste resultaten van het programma Gelijkspel in Sport, waarbij drie Brabantse golfclubs hebben meegedaan. Concrete afspraken en actiepunten als output." data-en="Inspirational talk by an external female role model, followed by co-creation: what role can golf clubs, federations and partners play? In golf the ratio is 68.5% men vs. 31.5% women — in the 25–50 age group even 76% vs. 24%. The Solheim Cup is the platform to break this. We also share the first results of the Equal Play in Sport programme, in which three Brabant golf clubs participated. Concrete agreements and action points as output.">Inspiratielezing door een extern vrouwelijk rolmodel, gevolgd door co-creatie: welke rol spelen golfbanen, bonden en partners? In golf is de verhouding 68,5% man vs. 31,5% vrouw — bij de leeftijdsgroep 25–50 jaar zelfs 76% vs. 24%. De Solheim Cup is het podium om dit te doorbreken. We delen ook de eerste resultaten van het programma Gelijkspel in Sport, waarbij drie Brabantse golfclubs hebben meegedaan. Concrete afspraken en actiepunten als output.</div>
+        <div class="pb-foot" data-nl="Binnen · 2 groepen · max 20 p.g." data-en="Indoors · 2 groups · max 20 p.g.">Binnen · 2 groepen · max 20 p.g.</div>
+        <div class="pb-loc">Bernardus Clubhouse / Bernardus Bar</div>
+        <div class="sam-collab"><img src="logos/image3.png" alt="SAM"><span data-nl="in samenwerking met Stichting SAM" data-en="in collaboration with Stichting SAM">in samenwerking met Stichting SAM</span></div>
+      </div>
+    </div>
+    <div class="pb pb-repeat pb-gold" onclick="togglePb(this)">
+      <div class="pb-repeat-header">
+        <div class="pb-title">⛳ Live PING Junior</div>
+        <span class="pb-repeat-tag" data-nl="Herhaling groep 2" data-en="Repeat group 2">Herhaling groep 2</span>
+        <span class="pb-chevron">▼</span>
+      </div>
+      <div class="pb-repeat-body">
+        <div class="pb-desc" data-nl="Begeleide wandeling langs de baan. Toelichting op format en talenten. De volgende generatie vrouwelijke golfers in actie." data-en="Guided walk along the course. Commentary on format and talent. The next generation of female golfers in action.">Begeleide wandeling langs de baan. Toelichting op format en talenten. De volgende generatie vrouwelijke golfers in actie.</div>
+        <div class="pb-foot" data-nl="Op de baan · 2 groepen · max 20 p.g." data-en="On the course · 2 groups · max 20 p.g.">Op de baan · 2 groepen · max 20 p.g.</div>
+        <div class="pb-loc">1st Tee</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="trange">↑ 11:30 – 12:15</div>
+
+<div class="divider"></div>
+
+<div class="row">
+  <div class="tc"><span>12:15</span></div>
+  <div class="blocks">
+    <div class="block b-gray">
+      <div class="block-title" data-nl="Gezamenlijke lunch · Noble Kitchen" data-en="Shared lunch · Noble Kitchen">Gezamenlijke lunch · Noble Kitchen</div>
+      <div class="block-desc" data-nl="Lunch met lokale en seizoensgebonden ingrediënten. Informele uitwisseling en netwerk." data-en="Lunch with local and seasonal ingredients. Informal exchange and networking.">Lunch met lokale en seizoensgebonden ingrediënten. Informele uitwisseling en netwerk.</div>
+      <span class="block-badge badge-gray" data-nl="Iedereen · 90 min" data-en="All · 90 min">Iedereen · 90 min</span>
+      <div class="location">Brabant Pavillion</div>
+    </div>
+  </div>
+</div>
+
+<!-- MIDDAG -->
+<div class="daypart" style="margin-top:28px;"><span data-nl="🌤 Middagprogramma · herhaling volledig programma voor nieuwe groep" data-en="🌤 Afternoon Programme · full programme repeated for new group">🌤 Middagprogramma · herhaling volledig programma voor nieuwe groep</span></div>
+
+<div class="divider"></div>
+<div class="section-label" data-nl="Plenair blok · 45 min totaal" data-en="Plenary block · 45 min total">Plenair blok · 45 min totaal</div>
+
+<div class="row">
+  <div class="tc"><span>13:45</span></div>
+  <div class="blocks">
+    <div class="block b-navy">
+      <div class="block-title" data-nl="Plenaire aftrap middag" data-en="Afternoon opening plenary">Plenaire aftrap middag</div>
+      <div class="block-desc" data-nl="Welkomstwoord voor de middaggroep. Introductie van de dag, de twee pijlers en het programma voor nieuwe aanwezigen." data-en="Welcome address for the afternoon group. Introduction to the day, the two pillars and the programme for new attendees.">Welkomstwoord voor de middaggroep. Introductie van de dag, de twee pijlers en het programma voor nieuwe aanwezigen.</div>
+      <span class="block-badge badge-navy" data-nl="Iedereen · 15 min" data-en="All · 15 min">Iedereen · 15 min</span>
+      <div class="speaker">🎤 Jeroen Stevens</div>
+      <div class="location" data-nl="Bernardus Clubhouse / Main Stage Fanzone" data-en="Bernardus Clubhouse / Main Stage Fan Zone">Bernardus Clubhouse / Main Stage Fanzone</div>
+    </div>
+  </div>
+</div>
+
+<div class="row" style="margin-top:3px;">
+  <div class="tc"><span>14:00</span></div>
+  <div class="blocks">
+    <div class="block b-navy" style="border-left-color:transparent;background:transparent;padding:4px 0 0;">
+      <div class="intro-split">
+        <div class="ih ih-blue">
+          <div class="ih-title">🌿 Celebrate Nature · 15 min</div>
+          <div class="ih-desc" data-nl="Herhaling introductie duurzaamheidsambities: GEO-certificering, BREEAM, nul-op-de-meter ambitie en actief biodiversiteitsherstel op Bernardus Golf als voorbeeld voor de golfsector." data-en="Repeat introduction to sustainability ambitions: GEO certification, BREEAM, net-zero ambition and active biodiversity restoration at Bernardus Golf as a model for the golf sector.">Herhaling introductie duurzaamheidsambities: GEO-certificering, BREEAM, nul-op-de-meter ambitie en actief biodiversiteitsherstel op Bernardus Golf als voorbeeld voor de golfsector.</div>
+        </div>
+        <div class="ih ih-red">
+          <div class="ih-title">⚡ Celebrate Women / SAM · 15 min</div>
+          <div class="ih-desc" data-nl="Herhaling SAM-introductie voor de middaggroep. Zelfde inhoud, nieuwe deelnemers." data-en="Repeat SAM introduction for the afternoon group. Same content, new participants.">Herhaling SAM-introductie voor de middaggroep. Zelfde inhoud, nieuwe deelnemers.</div>
+        </div>
+      </div>
+      <div class="badge-row">
+        <span class="block-badge badge-navy" data-nl="Iedereen · 2 × 15 min" data-en="All · 2 × 15 min">Iedereen · 2 × 15 min</span>
+        <span class="block-badge badge-gold" data-nl="Totaal plenair: 45 min ✓" data-en="Total plenary: 45 min ✓">Totaal plenair: 45 min ✓</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+<div class="section-label" data-nl="Ronde 3 · 3 parallelle smaken · 45 min" data-en="Round 3 · 3 parallel tracks · 45 min">Ronde 3 · 3 parallelle smaken · 45 min</div>
+
+<div class="row">
+  <div class="tc"><span>14:45</span></div>
+  <div class="blocks">
+    <div class="pb pb-repeat pb-blue" onclick="togglePb(this)">
+      <div class="pb-repeat-header">
+        <div class="pb-title">🌿 Celebrate Nature</div>
+        <span class="pb-repeat-tag" data-nl="Herhaling middag" data-en="Repeat afternoon">Herhaling middag</span>
+        <span class="pb-chevron">▼</span>
+      </div>
+      <div class="pb-repeat-body">
+        <div class="pb-desc" data-nl="Veldbezoek &amp; rondleiding: biodiversiteitsstroken, bijenkasten en wilde bijenburchten, waterhuishouding, Van Gogh NP partnerschap. Kennisdeling met golfbanen en partners over de GEO-gecertificeerde aanpak van Bernardus." data-en="Field visit &amp; guided tour: biodiversity strips, beehives and wild bee habitats, water management, Van Gogh NP partnership. Knowledge sharing with golf courses and partners on Bernardus's GEO-certified approach.">Veldbezoek &amp; rondleiding: biodiversiteitsstroken, bijenkasten en wilde bijenburchten, waterhuishouding, Van Gogh NP partnerschap. Kennisdeling met golfbanen en partners over de GEO-gecertificeerde aanpak van Bernardus.</div>
+        <div class="pb-foot" data-nl="Buiten · 2 groepen · max 20 p.g." data-en="Outdoors · 2 groups · max 20 p.g.">Buiten · 2 groepen · max 20 p.g.</div>
+        <div class="pb-loc" data-nl="Rondleiding over het terrein" data-en="Guided tour of the grounds">Rondleiding over het terrein</div>
+      </div>
+    </div>
+    <div class="pb pb-repeat pb-red" onclick="togglePb(this)">
+      <div class="pb-repeat-header">
+        <div class="pb-title">⚡ Celebrate Women</div>
+        <span class="pb-repeat-tag" data-nl="Herhaling middag" data-en="Repeat afternoon">Herhaling middag</span>
+        <span class="pb-chevron">▼</span>
+      </div>
+      <div class="pb-repeat-body">
+        <div class="pb-desc" data-nl="Inspiratielezing door een extern vrouwelijk rolmodel, gevolgd door co-creatie: welke rol spelen golfbanen, bonden en partners? In golf is de verhouding 68,5% man vs. 31,5% vrouw — bij de leeftijdsgroep 25–50 jaar zelfs 76% vs. 24%. De Solheim Cup is het podium om dit te doorbreken. We delen ook de eerste resultaten van het programma Gelijkspel in Sport, waarbij drie Brabantse golfclubs hebben meegedaan. Concrete afspraken en actiepunten als output." data-en="Inspirational talk by an external female role model, followed by co-creation: what role can golf clubs, federations and partners play? In golf the ratio is 68.5% men vs. 31.5% women — in the 25–50 age group even 76% vs. 24%. The Solheim Cup is the platform to break this. We also share the first results of the Equal Play in Sport programme, in which three Brabant golf clubs participated. Concrete agreements and action points as output.">Inspiratielezing door een extern vrouwelijk rolmodel, gevolgd door co-creatie: welke rol spelen golfbanen, bonden en partners? In golf is de verhouding 68,5% man vs. 31,5% vrouw — bij de leeftijdsgroep 25–50 jaar zelfs 76% vs. 24%. De Solheim Cup is het podium om dit te doorbreken. We delen ook de eerste resultaten van het programma Gelijkspel in Sport, waarbij drie Brabantse golfclubs hebben meegedaan. Concrete afspraken en actiepunten als output.</div>
+        <div class="pb-foot" data-nl="Binnen · 2 groepen · max 20 p.g." data-en="Indoors · 2 groups · max 20 p.g.">Binnen · 2 groepen · max 20 p.g.</div>
+        <div class="pb-loc">Bernardus Clubhouse / Bernardus Bar</div>
+        <div class="sam-collab"><img src="logos/image3.png" alt="SAM"><span data-nl="in samenwerking met Stichting SAM" data-en="in collaboration with Stichting SAM">in samenwerking met Stichting SAM</span></div>
+      </div>
+    </div>
+    <div class="pb pb-repeat pb-gold" onclick="togglePb(this)">
+      <div class="pb-repeat-header">
+        <div class="pb-title">⛳ Live PING Junior</div>
+        <span class="pb-repeat-tag" data-nl="Herhaling middag" data-en="Repeat afternoon">Herhaling middag</span>
+        <span class="pb-chevron">▼</span>
+      </div>
+      <div class="pb-repeat-body">
+        <div class="pb-desc" data-nl="Begeleide wandeling langs de baan. Toelichting op format en talenten. De volgende generatie vrouwelijke golfers in actie." data-en="Guided walk along the course. Commentary on format and talent. The next generation of female golfers in action.">Begeleide wandeling langs de baan. Toelichting op format en talenten. De volgende generatie vrouwelijke golfers in actie.</div>
+        <div class="pb-foot" data-nl="Op de baan · 2 groepen · max 20 p.g." data-en="On the course · 2 groups · max 20 p.g.">Op de baan · 2 groepen · max 20 p.g.</div>
+        <div class="pb-loc">1st Tee</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="trange">↑ 14:45 – 15:30</div>
+
+<div class="divider"></div>
+
+<div class="row">
+  <div class="tc"><span>15:30</span></div>
+  <div class="blocks">
+    <div class="block b-amber">
+      <div class="block-title" data-nl="Pauze" data-en="Break">Pauze</div>
+      <div class="block-desc" data-nl="Koffie en thee. Ruimte om van groep te wisselen voor ronde 4." data-en="Coffee and tea. Time to switch tracks for round 4.">Koffie en thee. Ruimte om van groep te wisselen voor ronde 4.</div>
+      <span class="block-badge badge-gold" data-nl="Iedereen · 15 min" data-en="All · 15 min">Iedereen · 15 min</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+<div class="repeat-note" data-nl="↻ Dezelfde drie smaken herhalen zich — iedereen kan van smaak wisselen" data-en="↻ The same three tracks repeat — participants may switch tracks">↻ Dezelfde drie smaken herhalen zich — iedereen kan van smaak wisselen</div>
+<div class="section-label" data-nl="Ronde 4 · 3 parallelle smaken · 45 min" data-en="Round 4 · 3 parallel tracks · 45 min">Ronde 4 · 3 parallelle smaken · 45 min</div>
+
+<div class="row">
+  <div class="tc"><span>15:45</span></div>
+  <div class="blocks">
+    <div class="pb pb-repeat pb-blue" onclick="togglePb(this)">
+      <div class="pb-repeat-header">
+        <div class="pb-title">🌿 Celebrate Nature</div>
+        <span class="pb-repeat-tag" data-nl="Herhaling middag groep 2" data-en="Repeat afternoon group 2">Herhaling middag groep 2</span>
+        <span class="pb-chevron">▼</span>
+      </div>
+      <div class="pb-repeat-body">
+        <div class="pb-desc" data-nl="Veldbezoek &amp; rondleiding: biodiversiteitsstroken, bijenkasten en wilde bijenburchten, waterhuishouding, Van Gogh NP partnerschap. Kennisdeling met golfbanen en partners over de GEO-gecertificeerde aanpak van Bernardus." data-en="Field visit &amp; guided tour: biodiversity strips, beehives and wild bee habitats, water management, Van Gogh NP partnership. Knowledge sharing with golf courses and partners on Bernardus's GEO-certified approach.">Veldbezoek &amp; rondleiding: biodiversiteitsstroken, bijenkasten en wilde bijenburchten, waterhuishouding, Van Gogh NP partnerschap. Kennisdeling met golfbanen en partners over de GEO-gecertificeerde aanpak van Bernardus.</div>
+        <div class="pb-foot" data-nl="Buiten · 2 groepen · max 20 p.g." data-en="Outdoors · 2 groups · max 20 p.g.">Buiten · 2 groepen · max 20 p.g.</div>
+        <div class="pb-loc" data-nl="Rondleiding over het terrein" data-en="Guided tour of the grounds">Rondleiding over het terrein</div>
+      </div>
+    </div>
+    <div class="pb pb-repeat pb-red" onclick="togglePb(this)">
+      <div class="pb-repeat-header">
+        <div class="pb-title">⚡ Celebrate Women</div>
+        <span class="pb-repeat-tag" data-nl="Herhaling middag groep 2" data-en="Repeat afternoon group 2">Herhaling middag groep 2</span>
+        <span class="pb-chevron">▼</span>
+      </div>
+      <div class="pb-repeat-body">
+        <div class="pb-desc" data-nl="Inspiratielezing door een extern vrouwelijk rolmodel, gevolgd door co-creatie: welke rol spelen golfbanen, bonden en partners? In golf is de verhouding 68,5% man vs. 31,5% vrouw — bij de leeftijdsgroep 25–50 jaar zelfs 76% vs. 24%. De Solheim Cup is het podium om dit te doorbreken. We delen ook de eerste resultaten van het programma Gelijkspel in Sport, waarbij drie Brabantse golfclubs hebben meegedaan. Concrete afspraken en actiepunten als output." data-en="Inspirational talk by an external female role model, followed by co-creation: what role can golf clubs, federations and partners play? In golf the ratio is 68.5% men vs. 31.5% women — in the 25–50 age group even 76% vs. 24%. The Solheim Cup is the platform to break this. We also share the first results of the Equal Play in Sport programme, in which three Brabant golf clubs participated. Concrete agreements and action points as output.">Inspiratielezing door een extern vrouwelijk rolmodel, gevolgd door co-creatie: welke rol spelen golfbanen, bonden en partners? In golf is de verhouding 68,5% man vs. 31,5% vrouw — bij de leeftijdsgroep 25–50 jaar zelfs 76% vs. 24%. De Solheim Cup is het podium om dit te doorbreken. We delen ook de eerste resultaten van het programma Gelijkspel in Sport, waarbij drie Brabantse golfclubs hebben meegedaan. Concrete afspraken en actiepunten als output.</div>
+        <div class="pb-foot" data-nl="Binnen · 2 groepen · max 20 p.g." data-en="Indoors · 2 groups · max 20 p.g.">Binnen · 2 groepen · max 20 p.g.</div>
+        <div class="pb-loc">Bernardus Clubhouse / Bernardus Bar</div>
+        <div class="sam-collab"><img src="logos/image3.png" alt="SAM"><span data-nl="in samenwerking met Stichting SAM" data-en="in collaboration with Stichting SAM">in samenwerking met Stichting SAM</span></div>
+      </div>
+    </div>
+    <div class="pb pb-repeat pb-gold" onclick="togglePb(this)">
+      <div class="pb-repeat-header">
+        <div class="pb-title">⛳ Live PING Junior</div>
+        <span class="pb-repeat-tag" data-nl="Herhaling middag groep 2" data-en="Repeat afternoon group 2">Herhaling middag groep 2</span>
+        <span class="pb-chevron">▼</span>
+      </div>
+      <div class="pb-repeat-body">
+        <div class="pb-desc" data-nl="Begeleide wandeling langs de baan. Toelichting op format en talenten. De volgende generatie vrouwelijke golfers in actie." data-en="Guided walk along the course. Commentary on format and talent. The next generation of female golfers in action.">Begeleide wandeling langs de baan. Toelichting op format en talenten. De volgende generatie vrouwelijke golfers in actie.</div>
+        <div class="pb-foot" data-nl="Op de baan · 2 groepen · max 20 p.g." data-en="On the course · 2 groups · max 20 p.g.">Op de baan · 2 groepen · max 20 p.g.</div>
+        <div class="pb-loc">1st Tee</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="trange">↑ 15:45 – 16:30</div>
+
+<div class="divider"></div>
+
+<div class="row">
+  <div class="tc"><span>16:30</span></div>
+  <div class="blocks">
+    <div class="block b-gray">
+      <div class="block-title" data-nl="Informele borrel &amp; netwerk" data-en="Informal drinks &amp; networking">Informele borrel &amp; netwerk</div>
+      <div class="block-desc" data-nl="Borrel op het terras van Bernardus Golf. Gelegenheid om nieuwe partnerships te bespreken en de dag af te sluiten in de natuur." data-en="Drinks on the terrace of Bernardus Golf. An opportunity to explore new partnerships and close the day in nature.">Borrel op het terras van Bernardus Golf. Gelegenheid om nieuwe partnerships te bespreken en de dag af te sluiten in de natuur.</div>
+      <span class="block-badge badge-gray" data-nl="Vrij · tot ± 18:00" data-en="Open · until ± 18:00">Vrij · tot ± 18:00</span>
+      <div class="location">Bernardus Bar</div>
+    </div>
+  </div>
+</div>
+
+<!-- CAPACITEIT & KOSTEN -->
+<div class="bottom">
+  <div class="card">
+    <h3 data-nl="Capaciteit per ronde" data-en="Capacity per round">Capaciteit per ronde</h3>
+    <table>
+      <tr><th data-nl="Smaak" data-en="Track">Smaak</th><th data-nl="Groepen" data-en="Groups">Groepen</th><th class="num" data-nl="Pers." data-en="Pax.">Pers.</th></tr>
+      <tr><td>Celebrate Nature</td><td data-nl="2 × 1 gids" data-en="2 × 1 guide">2 × 1 gids</td><td class="num">40</td></tr>
+    <tr><td data-nl="Celebrate Women" data-en="Celebrate Women">Celebrate Women</td><td data-nl="2 × 1 facilitator + externe spreker/inspirerend vrouwelijk rolmodel" data-en="2 × 1 facilitator + external speaker / inspiring female role model">2 × 1 facilitator + externe spreker/inspirerend vrouwelijk rolmodel</td><td class="num">40</td></tr>
+      <tr><td>Live PING Junior</td><td data-nl="2 × 1 begeleider" data-en="2 × 1 guide">2 × 1 begeleider</td><td class="num">40</td></tr>
+      <tr class="total hl"><td data-nl="Per ronde" data-en="Per round">Per ronde</td><td></td><td class="num">±120</td></tr>
+    </table>
+    <p class="note" data-nl="Per dagdeel 2 rondes → <strong>120 unieke deelnemers</strong>.<br>Ochtend + middag → <strong>±240 totaal over de dag</strong>." data-en="2 rounds per session → <strong>120 unique participants</strong>.<br>Morning + afternoon → <strong>±240 total across the day</strong>.">Per dagdeel 2 rondes → <strong>120 unieke deelnemers</strong>.<br>Ochtend + middag → <strong>±240 totaal over de dag</strong>.</p>
+    <table style="margin-top:12px;">
+      <tr><th data-nl="Begeleiders per dagdeel" data-en="Staff per session">Begeleiders per dagdeel</th><th class="num" data-nl="Aantal" data-en="No.">Aantal</th></tr>
+      <tr><td data-nl="Rondleidingsgidsen (Nature)" data-en="Tour guides (Nature)">Rondleidingsgidsen (Nature)</td><td class="num">4</td></tr>
+      <tr><td data-nl="Gespreksleiders (SAM)" data-en="Facilitators (SAM)">Gespreksleiders (SAM)</td><td class="num">4</td></tr>
+      <tr><td data-nl="PING Junior begeleider" data-en="PING Junior guide">PING Junior begeleider</td><td class="num">2</td></tr>
+      <tr class="total"><td data-nl="Totaal" data-en="Total">Totaal</td><td class="num">10</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3 data-nl="Deelnamekosten" data-en="Participation fee">Deelnamekosten</h3>
+    <table>
+      <tr><th colspan="2" data-nl="Wat is inbegrepen voor deelnemers" data-en="What is included for participants">Wat is inbegrepen voor deelnemers</th></tr>
+      <tr class="hl"><td colspan="2" style="font-size:11px;font-weight:700;color:#1a3a6b;" data-nl="Bijdrage per persoon: € 50,00" data-en="Contribution per person: € 50.00">Bijdrage per persoon: € 50,00</td></tr>
+      <tr><td data-nl="Ontvangst koffie &amp; gebak" data-en="Welcome coffee &amp; pastries">Ontvangst koffie &amp; gebak</td><td class="num">✓</td></tr>
+      <tr><td data-nl="Pauze koffie &amp; thee" data-en="Break coffee &amp; tea">Pauze koffie &amp; thee</td><td class="num">✓</td></tr>
+      <tr><td data-nl="Lunch Noble Kitchen" data-en="Lunch Noble Kitchen">Lunch Noble Kitchen</td><td class="num">✓</td></tr>
+      <tr><td data-nl="Borrel" data-en="Drinks reception">Borrel</td><td class="num">✓</td></tr>
+      <tr><td data-nl="Alle breakout sessies" data-en="All breakout sessions">Alle breakout sessies</td><td class="num">✓</td></tr>
+    </table>
+    <div style="margin-top:16px;padding-top:12px;border-top:1px solid #e0e3e9;">
+      <div style="font-size:10px;font-weight:700;color:#1a3a6b;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px;" data-nl="Kostencalculatie organisatie (intern)" data-en="Cost breakdown for organisation (internal)">Kostencalculatie organisatie (intern)</div>
+      <table>
+        <tr><th data-nl="Post" data-en="Item">Post</th><th class="num" data-nl="p.p." data-en="p.p.">p.p.</th></tr>
+        <tr><td data-nl="Ontvangst koffie &amp; gebak" data-en="Welcome coffee &amp; pastries">Ontvangst koffie &amp; gebak</td><td class="num">€ 6,00</td></tr>
+        <tr><td data-nl="Pauze koffie &amp; thee" data-en="Break coffee &amp; tea">Pauze koffie &amp; thee</td><td class="num">€ 3,00</td></tr>
+        <tr><td data-nl="Lunch Noble Kitchen" data-en="Lunch Noble Kitchen">Lunch Noble Kitchen</td><td class="num">€ 28,00</td></tr>
+        <tr><td data-nl="Borrel" data-en="Drinks reception">Borrel</td><td class="num">€ 12,00</td></tr>
+        <tr class="total"><td data-nl="Kostprijs p.p." data-en="Cost price p.p.">Kostprijs p.p.</td><td class="num">€ 49,00</td></tr>
+      </table>
+    </div>
+    <table style="margin-top:12px;">
+      <tr><th data-nl="Scenario (max. capaciteit)" data-en="Scenario (max. capacity)">Scenario (max. capaciteit)</th><th class="num" data-nl="Kosten org." data-en="Cost org.">Kosten org.</th></tr>
+      <tr><td data-nl="120 pers. — 1 dagdeel (maximale capaciteit)" data-en="120 pax — 1 session (maximum capacity)">120 pers. — 1 dagdeel <span style="font-size:10px;color:#888;" data-nl="(max. capaciteit)" data-en="(max. capacity)">(max. capaciteit)</span></td><td class="num">€ 5.880</td></tr>
+      <tr><td data-nl="240 pers. — hele dag (maximale capaciteit)" data-en="240 pax — full day (maximum capacity)">240 pers. — hele dag <span style="font-size:10px;color:#888;" data-nl="(max. capaciteit)" data-en="(max. capacity)">(max. capaciteit)</span></td><td class="num">€ 11.760</td></tr>
+    </table>
+    <p class="note" data-nl="Excl. begeleiders, externe spreker, AV/materialen en communicatiekosten.<br>Sponsoring via SAM, Green Events of NGF kan kosten drukken." data-en="Excl. staff, external speaker, AV/materials and communications costs.<br>Sponsorship via SAM, Green Events or NGF may reduce costs.">Excl. begeleiders, externe spreker, AV/materialen en communicatiekosten.<br>Sponsoring via SAM, Green Events of NGF kan kosten drukken.</p>
+  </div>
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-gold"></div>
+  <div class="footer-inner">
+    <div class="footer-logos">
+      <div class="footer-logo-sc">
+        <img src="logos/image1.png" alt="Solheim Cup 2026">
+      </div>
+      <div class="footer-logo-b">
+        <img src="logos/image2.png" alt="Bernardus">
+      </div>
+      <div style="display:flex;align-items:center;">
+        <img src="logos/image3.png" alt="SAM" style="height:36px;width:auto;mix-blend-mode:multiply;">
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.solheimcup.com" target="_blank">solheimcup.com</a>
+      <a href="https://www.bernardusgolf.com" target="_blank">bernardusgolf.com</a>
+      <a href="https://www.stichting-sam.com" target="_blank">stichting-sam.com</a>
+    </div>
+  </div>
+</div>
+
+<script>
+function setLang(lang) {
+  document.getElementById('btn-nl').classList.toggle('active', lang === 'nl');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.querySelectorAll('[data-nl]').forEach(el => {
+    const txt = el.getAttribute('data-' + lang);
+    if (txt !== null) el.innerHTML = txt;
+  });
+  document.documentElement.lang = lang;
+}
+function togglePb(el) {
+  el.classList.toggle('open');
+}
+</script>
+</body>
+</html>
